@@ -1,4 +1,4 @@
-class Cell {
+export default class Cell {
     static width = 10;
     static height = 10;
 

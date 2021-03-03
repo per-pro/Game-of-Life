@@ -1,0 +1,32 @@
+{
+  "name": "GameofLife",
+  "version": "1.0.0",
+  "description": "",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "webpack --watch --mode=development"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/per-pro/Game-of-Life.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/per-pro/Game-of-Life/issues"
+  },
+  "homepage": "https://github.com/per-pro/Game-of-Life#readme",
+  "dependencies": {
+    "@babel/core": "^7.13.8",
+    "@babel/preset-env": "^7.13.9",
+    "babel-loader": "^8.2.2",
+    "lodash": "^4.17.21",
+    "webpack": "^5.24.3",
+    "webpack-cli": "^4.5.0"
+  },
+  "plugins": "@babel/plugin-proposal-class-properties",
+  "devDependencies": {
+    "@babel/plugin-proposal-class-properties": "^7.13.0"
+  }
+}

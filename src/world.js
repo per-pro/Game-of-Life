@@ -1,24 +1,6 @@
-class Cell {
-    static width = 10;
-    static height = 10;
+import Cell from './cell'
 
-    constructor (context, gridX, gridY) {
-        this.context = context;
-        this.gridX = gridX;
-        this.gridY = gridY;
-
-        this.on = Math.random() > 0.5;
-    }
-
-    draw() {
-        this.context.fillStyle = this.on ? '#ff8080' : '#303030';
-        this.context.fillRect(this.gridX * Cell.width,
-                              this.gridY * Cell.height,
-                              Cell.width, Cell.height);
-    }
-}
-
-class World {
+export default class World {
     static numColumns = 100;
     static numRows = 100;
 
@@ -34,9 +16,9 @@ class World {
         for (let y = 0; y < World.numRows; y++) {
             for (let x = 0; x < World.numColumns; x++) {
                 this.entities.push(new Cell(this.context, x, y));
+            }
         }
     }
-}
 
     isOn(x, y) {
         if (x < 0 || x >= World.numColumns 
@@ -93,8 +75,4 @@ class World {
         }, 100);
     }
 
-}
-
-window.onload = () => {
-    let world = new World('canvas');
 }
