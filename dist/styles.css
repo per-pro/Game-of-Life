@@ -17,4 +17,7 @@ body {
     flex-direction: row;
     justify-content: flex-start;
     flex-flow: column wrap;
+    border: 1px solid black;
+    background-color: lightskyblue;
+
 }
