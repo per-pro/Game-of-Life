@@ -1,0 +1,13 @@
+.container{
+    display: flex
+}
+
+#canvas {
+    display: flex;
+    justify-content: flex-start;
+}
+.settings {
+    display: flex;
+    justify-content: flex-end;
+    flex-flow: row wrap;
+}

@@ -5,41 +5,35 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Game of Life</title>
-    <style>
-        .settings {
-            display: flex;
-            justify-content: flex-end;
-            flex-shrink: 1;
-        }
-    </style>
+    <link rel="stylesheet" href="./styles.css">
+
 </head>
 <body>
     <h1>Game of Life</h1>
 
-    <div class="settings">
-        <h2>Board Configuration</h2>
-        <br>
-        
-        <input type="number" name="Cell Width" placeholder="Cell Width (2-40)" id="cell-width">
-        <input type="number" name="Cell Height" placeholder="Cell Width (2-40)" id="cell-height">
-        <br>
-        <input type="number" name="Number of Rows" placeholder="Number of Rows (10-100)" id="num-rows">
-        <input type="number" name="Number of Columns" placeholder="Number of Columns (10-100)" id="num-cols">
-        <input type="button" value="color">
+    <div class="container">
+        <div class="settings">
+            <h2>Board Configuration</h2>
+            
+            <input type="number" name="Cell Width" placeholder="Cell Width (2-40)" id="cell-width">
+            <input type="number" name="Cell Height" placeholder="Cell Width (2-40)" id="cell-height">
+            <br>
+            <input type="number" name="Number of Rows" placeholder="Number of Rows (10-100)" id="num-rows">
+            <input type="number" name="Number of Columns" placeholder="Number of Columns (10-100)" id="num-cols">
+            <input type="button" value="color">
+        </div>
+    
+        <div class="settings">
+            <h2>Variations</h2>
+            
+            <input type="button" value="rules">
+            <input type="button" value="cell shape">
+            <input type="button" value="grid shape">     
+        </div>
+    
+        <canvas id="canvas" width="1000" height="1000" style="border: 1px solid grey;"></canvas>
     </div>
-
-    <div class="settings">
-        <h2>Variations</h2>
-        <br>
-        
-        <input type="button" value="rules">
-        <input type="button" value="cell shape">
-        <input type="button" value="grid shape">     
-    </div>
-
-
-    <br>
-    <canvas id="canvas" width="1000" height="1000" style="border: 1px solid grey;"></canvas>
+    
     
     <script defer src="bundle.js"></script> 
 </body>
