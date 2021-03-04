@@ -15,5 +15,9 @@ export default class Cell {
         this.context.fillRect(this.gridX * Cell.width,
                               this.gridY * Cell.height,
                               Cell.width, Cell.height);
+        // this.context.fillRect(this.gridX * document.getElementById("cell-width"),
+        //                       this.gridY * document.getElementById("cell-height"),
+        //                       document.getElementById("cell-width"),
+        //                       document.getElementById("cell-height"));
     }
 }

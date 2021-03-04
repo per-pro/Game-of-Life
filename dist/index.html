@@ -16,15 +16,26 @@
             <div class="config">
                 <h2>Board Configuration</h2>
             
-                <input type="number" name="Cell Width" placeholder="Cell Width (2-40)" id="cell-width">
+                <input type="number" name="Cell Width" placeholder="Cell Width: default 10" id="width">
                 <br>
-                <input type="number" name="Cell Height" placeholder="Cell Width (2-40)" id="cell-height">
+                <input type="number" name="Cell Height" placeholder="Cell Height: default 10" id="height">
                 <br>
-                <input type="number" name="Number of Rows" placeholder="Number of Rows (10-100)" id="num-rows">
+                <input type="number" name="Number of Rows" placeholder="Num Rows: default 100" id="rows">
                 <br>
-                <input type="number" name="Number of Columns" placeholder="Number of Columns (10-100)" id="num-cols">
+                <input type="number" name="Number of Columns" placeholder="Num Columns: default 100" id="cols">
                 <br>
-                <input type="button" value="color">
+                <label for="color">Choose a color scheme:</label>
+                <select name="color" id="color">
+                    <option selected="selected" value="1">Black/Coral</option>
+                    <option value="2">Blue/Orange</option>
+                    <option value="3">Red/Green</option>
+                </select>
+                <br>
+                <button onclick="add(document.getElementById('width').value, 
+                                document.getElementById('height').value,
+                                document.getElementById('rows').value,
+                                document.getElementById('cols').value,
+)"></button>
             </div>
             
             <div class="variations">
