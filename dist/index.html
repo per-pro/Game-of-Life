@@ -15,7 +15,6 @@
         <div class="settings">
             <div class="config">
                 <h2>Board Configuration</h2>
-            
                 <input type="number" name="Cell Width" placeholder="Cell Width: default 10" id="width">
                 <br>
                 <input type="number" name="Cell Height" placeholder="Cell Height: default 10" id="height">
@@ -24,18 +23,18 @@
                 <br>
                 <input type="number" name="Number of Columns" placeholder="Num Columns: default 100" id="cols">
                 <br>
-                <label for="color">Choose a color scheme:</label>
+                <label for="color">Color scheme:</label>
                 <select name="color" id="color">
                     <option selected="selected" value="1">Black/Coral</option>
                     <option value="2">Blue/Orange</option>
                     <option value="3">Red/Green</option>
                 </select>
                 <br>
-                <button onclick="add(document.getElementById('width').value, 
+                <!-- <button onclick="add(document.getElementById('width').value, 
                                 document.getElementById('height').value,
                                 document.getElementById('rows').value,
                                 document.getElementById('cols').value,
-)"></button>
+                                document.getElementById('colors').value)">Button</button> -->
             </div>
             
             <div class="variations">
