@@ -16,7 +16,7 @@
   "bugs": {
     "url": "https://github.com/per-pro/Game-of-Life/issues"
   },
-  "homepage": "https://github.com/per-pro/Game-of-Life#readme",
+  "homepage": "https://github.com/per-pro/Game-of-Life",
   "dependencies": {
     "@babel/core": "^7.13.8",
     "@babel/preset-env": "^7.13.9",
