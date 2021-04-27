@@ -4,21 +4,13 @@ export default class World {
     static numColumns = 100;
     static numRows = 100;
 
-    // constructor(canvasId, width, height, rows, cols, color) {
-    //     this.canvas = document.getElementById(canvasId);
-    //     this.width = width
-    //     this.height = height
-    //     this.rows = rows
-    //     this.cols = cols
-    //     this.color = color
-    //     console.log(this.color)
-
-
-    //     this.context = this.canvas.getContext('2d');
-    // }
-    this.entities = [];
-    this.makeGrid();
-    window.requestAnimationFrame(() => this.loop());
+    constructor(canvasId) {
+        this.canvas = document.getElementById(canvasId);
+        this.context = this.canvas.getContext('2d');
+        this.entities = [];
+        this.makeGrid();
+        window.requestAnimationFrame(() => this.loop());
+    }
 
     makeGrid() {
         for (let y = 0; y < World.numRows; y++) {
