@@ -34,10 +34,7 @@ var Cell = /*#__PURE__*/function () {
     key: "draw",
     value: function draw() {
       this.context.fillStyle = this.on ? '#ff8080' : '#303030';
-      this.context.fillRect(this.gridX * Cell.width, this.gridY * Cell.height, Cell.width, Cell.height); // this.context.fillRect(this.gridX * document.getElementById("cell-width"),
-      //                       this.gridY * document.getElementById("cell-height"),
-      //                       document.getElementById("cell-width"),
-      //                       document.getElementById("cell-height"));
+      this.context.fillRect(this.gridX * Cell.width, this.gridY * Cell.height, Cell.width, Cell.height);
     }
   }]);
 
