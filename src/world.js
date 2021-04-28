@@ -4,6 +4,8 @@ export default class World {
     static numColumns = 100;
     static numRows = 100;
 
+    var generation = 0;
+
     constructor(canvasId) {
         this.canvas = document.getElementById(canvasId);
         this.context = this.canvas.getContext('2d');
@@ -69,6 +71,8 @@ export default class World {
         for (let i = 0; i < this.entities.length; i++) {
             this.entities[i].draw();
         };
+
+        generation += 1;
 
         setTimeout( () => {
             window.requestAnimationFrame(() => this.loop())
