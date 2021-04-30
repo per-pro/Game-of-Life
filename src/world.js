@@ -63,6 +63,10 @@ export default class World {
         }
     }
 
+    incrementGeneration(i) {
+        return i += 1;
+    }
+
     loop() {
         this.checkNeighborhood();
 
@@ -72,7 +76,7 @@ export default class World {
             this.entities[i].draw();
         };
 
-        generation += 1;
+        console.log(incrementGeneration());
 
         setTimeout( () => {
             window.requestAnimationFrame(() => this.loop())
