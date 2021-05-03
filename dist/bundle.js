@@ -69,9 +69,9 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
 function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
 
 
+var generation = 0;
 
 var World = /*#__PURE__*/function () {
-  // var generation = 0;
   function World(canvasId) {
     var _this = this;
 
@@ -132,6 +132,11 @@ var World = /*#__PURE__*/function () {
       }
     }
   }, {
+    key: "incrementGeneration",
+    value: function incrementGeneration(i) {
+      return i += 1;
+    }
+  }, {
     key: "loop",
     value: function loop() {
       var _this2 = this;
@@ -143,7 +148,7 @@ var World = /*#__PURE__*/function () {
         this.entities[i].draw();
       }
 
-      ; // generation += 1;
+      ; // console.log(incrementGeneration());
 
       setTimeout(function () {
         window.requestAnimationFrame(function () {

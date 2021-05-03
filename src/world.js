@@ -1,10 +1,10 @@
 import Cell from './cell'
 
+var generation = 0;
+
 export default class World {
     static numColumns = 100;
     static numRows = 100;
-
-    var generation = 0;
 
     constructor(canvasId) {
         this.canvas = document.getElementById(canvasId);
@@ -76,7 +76,7 @@ export default class World {
             this.entities[i].draw();
         };
 
-        console.log(incrementGeneration());
+        // console.log(incrementGeneration());
 
         setTimeout( () => {
             window.requestAnimationFrame(() => this.loop())
