@@ -11,7 +11,7 @@ export default class Cell {
     }
 
     draw() {
-        this.context.fillStyle = this.on ? '#ff8080' : '#303030';
+        this.context.fillStyle = this.on ? 'red' : '#303030';
         this.context.fillRect(this.gridX * Cell.width,
                               this.gridY * Cell.height,
                               Cell.width, Cell.height);

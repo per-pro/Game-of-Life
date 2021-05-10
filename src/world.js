@@ -1,7 +1,5 @@
 import Cell from './cell'
 
-var generation = 0;
-
 export default class World {
     static numColumns = 100;
     static numRows = 100;
@@ -10,7 +8,8 @@ export default class World {
         this.canvas = document.getElementById(canvasId);
         this.context = this.canvas.getContext('2d');
         this.entities = [];
-        this.makeGrid();
+        this.generation = 0;
+        // this.makeGrid();
         window.requestAnimationFrame(() => this.loop());
     }
 
@@ -63,8 +62,8 @@ export default class World {
         }
     }
 
-    incrementGeneration(i) {
-        return i += 1;
+    incrementGeneration() {
+        this.generation += 1;
     }
 
     loop() {
@@ -76,7 +75,11 @@ export default class World {
             this.entities[i].draw();
         };
 
-        // console.log(incrementGeneration());
+        this.incrementGeneration();
+        // console.log(this.generation);
+
+        //check if system is stable
+        //if yes, stop incrementing generation and display number until stable
 
         setTimeout( () => {
             window.requestAnimationFrame(() => this.loop())

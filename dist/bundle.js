@@ -33,7 +33,7 @@ var Cell = /*#__PURE__*/function () {
   _createClass(Cell, [{
     key: "draw",
     value: function draw() {
-      this.context.fillStyle = this.on ? '#ff8080' : '#303030';
+      this.context.fillStyle = this.on ? 'red' : '#303030';
       this.context.fillRect(this.gridX * Cell.width, this.gridY * Cell.height, Cell.width, Cell.height);
     }
   }]);
@@ -69,7 +69,6 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
 function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
 
 
-var generation = 0;
 
 var World = /*#__PURE__*/function () {
   function World(canvasId) {
@@ -80,7 +79,8 @@ var World = /*#__PURE__*/function () {
     this.canvas = document.getElementById(canvasId);
     this.context = this.canvas.getContext('2d');
     this.entities = [];
-    this.makeGrid();
+    this.generation = 0; // this.makeGrid();
+
     window.requestAnimationFrame(function () {
       return _this.loop();
     });
@@ -133,8 +133,8 @@ var World = /*#__PURE__*/function () {
     }
   }, {
     key: "incrementGeneration",
-    value: function incrementGeneration(i) {
-      return i += 1;
+    value: function incrementGeneration() {
+      this.generation += 1;
     }
   }, {
     key: "loop",
@@ -148,7 +148,10 @@ var World = /*#__PURE__*/function () {
         this.entities[i].draw();
       }
 
-      ; // console.log(incrementGeneration());
+      ;
+      this.incrementGeneration(); // console.log(this.generation);
+      //check if system is stable
+      //if yes, stop incrementing generation and display number until stable
 
       setTimeout(function () {
         window.requestAnimationFrame(function () {
@@ -233,10 +236,28 @@ var __webpack_exports__ = {};
 __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _world__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./world */ "./src/world.js");
 
+var selectedColor = '';
 
 window.onload = function () {
   var world = new _world__WEBPACK_IMPORTED_MODULE_0__.default('canvas', 'width', 'height', 'rows', 'cols', 'color');
-};
+  var colorInput = document.getElementById('color');
+  colorInput.addEventListener('click', function (e) {// switch statement
+  });
+  var columnInput = document.getElementById('column');
+  columnInput.addEventListener('click', function (e) {// switch statement
+  });
+  var rowInput = document.getElementById('row');
+  rowInput.addEventListener('click', function (e) {// switch statement
+  });
+  var widthInput = document.getElementById('width');
+  widthInput.addEventListener('click', function (e) {// switch statement
+  });
+  var heightInput = document.getElementById('height');
+  heightInput.addEventListener('click', function (e) {// switch statement
+  });
+  world.makeGrid();
+}; //play button
+//default?
 })();
 
 /******/ })()
