@@ -12,6 +12,7 @@ window.onload = () => {
     let colorInput = document.getElementById('color');
     colorInput.addEventListener('click', (e) => {
         // switch statement
+        switch()
     });
     let columnInput = document.getElementById('column');
     columnInput.addEventListener('click', (e) => {
