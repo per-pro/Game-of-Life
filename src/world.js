@@ -9,7 +9,7 @@ export default class World {
         this.context = this.canvas.getContext('2d');
         this.entities = [];
         this.generation = 0;
-        // this.makeGrid();
+        this.makeGrid();
         window.requestAnimationFrame(() => this.loop());
     }
 
@@ -62,9 +62,9 @@ export default class World {
         }
     }
 
-    incrementGeneration() {
-        this.generation += 1;
-    }
+    // incrementGeneration() {
+    //     this.generation += 1;
+    // }
 
     loop() {
         this.checkNeighborhood();
@@ -75,10 +75,10 @@ export default class World {
             this.entities[i].draw();
         };
 
-        this.incrementGeneration();
+        // this.incrementGeneration();
         // console.log(this.generation);
 
-        //check if system is stable
+        //check if system is stable: compare state configuration between any given state and the one after a successor generation
         //if yes, stop incrementing generation and display number until stable
 
         setTimeout( () => {
