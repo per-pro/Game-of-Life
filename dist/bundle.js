@@ -33,12 +33,15 @@ var Cell = /*#__PURE__*/function () {
   _createClass(Cell, [{
     key: "draw",
     value: function draw() {
-      this.context.fillStyle = this.on ? 'red' : '#303030'; //'coral' : '#FF7F50'
-      //'mint' : '#98FF98'
-      //'peach' : '#FFDAB9'
-      //'tide' : '#B7B4AD'
-      //'Oslo Gray' : '#8E9096'
-      //'Smoke' : '#848884'
+      this.context.fillStyle = this.on ? 'red' : 'black'; // this.context.fillStyle = this.on ? 'peach' : 'mint';
+      // this.context.fillStyle = this.on ? 'tide' : 'oslo gray';
+      // this.context.fillStyle = this.on ? 'coral' : 'smoke';
+      //'mint' - '#98FF98'
+      //'peach' - '#FFDAB9'
+      //'tide' - '#B7B4AD'
+      //'Oslo Gray' - '#8E9096'
+      //'coral' - '#FF7F50'
+      //'Smoke' - '#848884'
 
       this.context.fillRect(this.gridX * Cell.width, this.gridY * Cell.height, Cell.width, Cell.height);
     }
