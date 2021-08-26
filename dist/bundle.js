@@ -248,8 +248,14 @@ var selectedColor = '';
 window.onload = function () {
   var world = new _world__WEBPACK_IMPORTED_MODULE_0__.default('canvas', 'width', 'height', 'rows', 'cols', 'color');
   var colorInput = document.getElementById('color');
-  colorInput.addEventListener('click', function (e) {// switch statement
-    // switch();
+  colorInput.addEventListener('click', function (e) {
+    // switch statement
+    switch (color) {
+      case 1:
+      case 1:
+    }
+
+    ;
   });
   var columnInput = document.getElementById('column');
   columnInput.addEventListener('click', function (e) {// switch statement
