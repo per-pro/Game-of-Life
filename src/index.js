@@ -23,6 +23,7 @@ window.onload = () => {
     let columnInput = document.getElementById('column');
     columnInput.addEventListener('click', (e) => {
         // switch statement
+        //hello
     });
     let rowInput = document.getElementById('row');
     rowInput.addEventListener('click', (e) => {
