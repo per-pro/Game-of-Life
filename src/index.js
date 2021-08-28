@@ -14,7 +14,7 @@ window.onload = () => {
         switch statement
         switch(color) {
             // case "Cold":
-            case "Warm":
+            // case "Warm":
             case "Dark":
             case "Light":
 
