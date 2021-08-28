@@ -13,7 +13,7 @@ window.onload = () => {
     colorInput.addEventListener('click', (e) => {
         switch statement
         switch(color) {
-            case "Cold":
+            // case "Cold":
             case "Warm":
             case "Dark":
             case "Light":
