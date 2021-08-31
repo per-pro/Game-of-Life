@@ -21,6 +21,7 @@ window.onload = () => {
         // };
         //1
         //2
+        //3
     });
     let columnInput = document.getElementById('column');
     columnInput.addEventListener('click', (e) => {
