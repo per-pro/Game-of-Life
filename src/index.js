@@ -19,6 +19,7 @@ window.onload = () => {
         //     case "Light":
 
         // };
+        //1
     });
     let columnInput = document.getElementById('column');
     columnInput.addEventListener('click', (e) => {
