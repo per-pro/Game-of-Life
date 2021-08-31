@@ -1,5 +1,4 @@
 /******/ (() => { // webpackBootstrap
-/******/ 	"use strict";
 /******/ 	var __webpack_modules__ = ({
 
 /***/ "./src/cell.js":
@@ -8,10 +7,13 @@
   \*********************/
 /***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
+"use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   "default": () => (/* binding */ Cell)
 /* harmony export */ });
+/* harmony import */ var _global__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./global */ "./src/global.js");
+/* harmony import */ var _global__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_global__WEBPACK_IMPORTED_MODULE_0__);
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
 
 function _defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } }
@@ -19,6 +21,8 @@ function _defineProperties(target, props) { for (var i = 0; i < props.length; i+
 function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _defineProperties(Constructor.prototype, protoProps); if (staticProps) _defineProperties(Constructor, staticProps); return Constructor; }
 
 function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
+
+
 
 var Cell = /*#__PURE__*/function () {
   function Cell(context, gridX, gridY) {
@@ -33,15 +37,27 @@ var Cell = /*#__PURE__*/function () {
   _createClass(Cell, [{
     key: "draw",
     value: function draw() {
-      this.context.fillStyle = this.on ? 'red' : 'black'; // this.context.fillStyle = this.on ? 'peach' : 'mint';
-      // this.context.fillStyle = this.on ? 'tide' : 'oslo gray';
-      // this.context.fillStyle = this.on ? 'coral' : 'smoke';
-      //'mint' - '#98FF98'
+      debugger;
+
+      switch (selectedColor) {
+        case "Warm":
+          this.context.fillStyle = this.on ? 'peach' : 'mint';
+
+        case "Dark":
+          this.context.fillStyle = this.on ? 'tide' : 'oslo gray';
+
+        case "Light":
+          this.context.fillStyle = this.on ? 'coral' : 'smoke';
+
+        default:
+          this.context.fillStyle = this.on ? 'red' : 'black';
+      } //'mint' - '#98FF98'
       //'peach' - '#FFDAB9'
       //'tide' - '#B7B4AD'
       //'Oslo Gray' - '#8E9096'
       //'coral' - '#FF7F50'
       //'Smoke' - '#848884'
+
 
       this.context.fillRect(this.gridX * Cell.width, this.gridY * Cell.height, Cell.width, Cell.height);
     }
@@ -58,12 +74,23 @@ _defineProperty(Cell, "height", 10);
 
 /***/ }),
 
+/***/ "./src/global.js":
+/*!***********************!*\
+  !*** ./src/global.js ***!
+  \***********************/
+/***/ (() => {
+
+var selectedColor = "";
+
+/***/ }),
+
 /***/ "./src/world.js":
 /*!**********************!*\
   !*** ./src/world.js ***!
   \**********************/
 /***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
+"use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   "default": () => (/* binding */ World)
@@ -205,6 +232,18 @@ _defineProperty(World, "numRows", 100);
 /******/ 	}
 /******/ 	
 /************************************************************************/
+/******/ 	/* webpack/runtime/compat get default export */
+/******/ 	(() => {
+/******/ 		// getDefaultExport function for compatibility with non-harmony modules
+/******/ 		__webpack_require__.n = (module) => {
+/******/ 			var getter = module && module.__esModule ?
+/******/ 				() => (module['default']) :
+/******/ 				() => (module);
+/******/ 			__webpack_require__.d(getter, { a: getter });
+/******/ 			return getter;
+/******/ 		};
+/******/ 	})();
+/******/ 	
 /******/ 	/* webpack/runtime/define property getters */
 /******/ 	(() => {
 /******/ 		// define getter functions for harmony exports
@@ -235,24 +274,35 @@ _defineProperty(World, "numRows", 100);
 /******/ 	
 /************************************************************************/
 var __webpack_exports__ = {};
-// This entry need to be wrapped in an IIFE because it need to be isolated against other modules in the chunk.
+// This entry need to be wrapped in an IIFE because it need to be in strict mode.
 (() => {
+"use strict";
 /*!**********************!*\
   !*** ./src/index.js ***!
   \**********************/
 __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _world__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./world */ "./src/world.js");
+/* harmony import */ var _global__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./global */ "./src/global.js");
+/* harmony import */ var _global__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(_global__WEBPACK_IMPORTED_MODULE_1__);
 
-var selectedColor = '';
+
 
 window.onload = function () {
   var world = new _world__WEBPACK_IMPORTED_MODULE_0__.default('canvas', 'width', 'height', 'rows', 'cols', 'color');
   var colorInput = document.getElementById('color');
   colorInput.addEventListener('click', function (e) {
-    // switch statement
-    switch (color) {
-      case 1:
-      case 1:
+    switch ('color') {
+      case "Cold":
+        selectedColor = "Cold";
+
+      case "Warm":
+        selectedColor = "Warm";
+
+      case "Dark":
+        selectedColor = "Dark";
+
+      case "Light":
+        selectedColor = "Light";
     }
 
     ;

@@ -1,3 +1,5 @@
+import './global'
+
 export default class Cell {
     static width = 10;
     static height = 10;
@@ -9,8 +11,8 @@ export default class Cell {
 
         this.on = Math.random() > 0.5;
     }
-
     draw() {
+        debugger
         switch (selectedColor) {
             case "Warm":
                 this.context.fillStyle = this.on ? 'peach' : 'mint';

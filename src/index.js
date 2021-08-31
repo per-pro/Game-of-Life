@@ -1,6 +1,5 @@
 import World from './world'
-
-var selectedColor = ''
+import './global'
 
 window.onload = () => {
     let world = new World('canvas', 
