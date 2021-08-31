@@ -11,7 +11,7 @@ window.onload = () => {
     'color');
     let colorInput = document.getElementById('color');
     colorInput.addEventListener('click', (e) => {
-        switch(color) {
+        switch('color') {
             case "Cold":
                 selectedColor = "Cold";
             case "Warm":

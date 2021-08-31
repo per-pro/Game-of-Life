@@ -11,11 +11,16 @@ export default class Cell {
     }
 
     draw() {
-        this.context.fillStyle = this.on ? 'red' : 'black';
-        // this.context.fillStyle = this.on ? 'peach' : 'mint';
-        // this.context.fillStyle = this.on ? 'tide' : 'oslo gray';
-        // this.context.fillStyle = this.on ? 'coral' : 'smoke';
-
+        switch (selectedColor) {
+            case "Warm":
+                this.context.fillStyle = this.on ? 'peach' : 'mint';
+            case "Dark":
+                this.context.fillStyle = this.on ? 'tide' : 'oslo gray';
+            case "Light":
+                this.context.fillStyle = this.on ? 'coral' : 'smoke';
+            default:
+                this.context.fillStyle = this.on ? 'red' : 'black';
+        }
         //'mint' - '#98FF98'
         //'peach' - '#FFDAB9'
         //'tide' - '#B7B4AD'
