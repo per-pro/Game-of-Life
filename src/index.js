@@ -20,6 +20,7 @@ window.onload = () => {
 
         // };
         //1
+        //2
     });
     let columnInput = document.getElementById('column');
     columnInput.addEventListener('click', (e) => {
