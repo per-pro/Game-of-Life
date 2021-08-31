@@ -12,11 +12,14 @@ window.onload = () => {
     let colorInput = document.getElementById('color');
     colorInput.addEventListener('click', (e) => {
         switch(color) {
-            // case "Cold":
-            // case "Warm":
+            case "Cold":
+                selectedColor = "Cold";
+            case "Warm":
+                selectedColor = "Warm";
             case "Dark":
+                selectedColor = "Dark";
             case "Light":
-
+                selectedColor = "Light";
         };
     });
     let columnInput = document.getElementById('column');
