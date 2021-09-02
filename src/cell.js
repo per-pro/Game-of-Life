@@ -12,16 +12,20 @@ export default class Cell {
         this.on = Math.random() > 0.5;
     }
     draw() {
-        debugger
+        // console.log(window.selectedColor)
         switch (window.selectedColor) {
             case "Warm":
-                this.context.fillStyle = this.on ? 'peach' : 'mint';
+                this.context.fillStyle = this.on ? '#FFDAB9' : '#98FF98';
+                break
             case "Dark":
-                this.context.fillStyle = this.on ? 'tide' : 'oslo gray';
+                this.context.fillStyle = this.on ? '#B7B4AD' : '#8E9096';
+                break
             case "Light":
-                this.context.fillStyle = this.on ? 'coral' : 'smoke';
+                this.context.fillStyle = this.on ? '#FF7F50' : '#848884';
+                break
             default:
                 this.context.fillStyle = this.on ? 'red' : 'black';
+                break
         }
         //'mint' - '#98FF98'
         //'peach' - '#FFDAB9'

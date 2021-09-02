@@ -37,20 +37,23 @@ var Cell = /*#__PURE__*/function () {
   _createClass(Cell, [{
     key: "draw",
     value: function draw() {
-      debugger;
-
+      // console.log(window.selectedColor)
       switch (window.selectedColor) {
         case "Warm":
-          this.context.fillStyle = this.on ? 'peach' : 'mint';
+          this.context.fillStyle = this.on ? '#FFDAB9' : '#98FF98';
+          break;
 
         case "Dark":
-          this.context.fillStyle = this.on ? 'tide' : 'oslo gray';
+          this.context.fillStyle = this.on ? '#B7B4AD' : '#8E9096';
+          break;
 
         case "Light":
-          this.context.fillStyle = this.on ? 'coral' : 'smoke';
+          this.context.fillStyle = this.on ? '#FF7F50' : '#848884';
+          break;
 
         default:
           this.context.fillStyle = this.on ? 'red' : 'black';
+          break;
       } //'mint' - '#98FF98'
       //'peach' - '#FFDAB9'
       //'tide' - '#B7B4AD'
@@ -292,20 +295,25 @@ __webpack_require__.r(__webpack_exports__);
 
 window.onload = function () {
   var world = new _world__WEBPACK_IMPORTED_MODULE_0__.default('canvas', 'width', 'height', 'rows', 'cols', 'color');
-  var colorInput = document.getElementById('color');
-  colorInput.addEventListener('click', function (e) {
-    switch ('color') {
+  var colorInput = document.getElementById('color'); // console.log('the color is ', colorInput.value)
+
+  colorInput.addEventListener('change', function (e) {
+    switch (e.currentTarget.value) {
       case "Cold":
         window.selectedColor = "Cold";
+        return;
 
       case "Warm":
         window.selectedColor = "Warm";
+        return;
 
       case "Dark":
         window.selectedColor = "Dark";
+        return;
 
       case "Light":
         window.selectedColor = "Light";
+        return;
     }
 
     ;

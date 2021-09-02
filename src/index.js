@@ -9,16 +9,21 @@ window.onload = () => {
     'cols',
     'color');
     let colorInput = document.getElementById('color');
-    colorInput.addEventListener('click', (e) => {
-        switch('color') {
+    // console.log('the color is ', colorInput.value)
+    colorInput.addEventListener('change', (e) => {
+        switch(e.currentTarget.value) {
             case "Cold":
                 window.selectedColor = "Cold";
+                return
             case "Warm":
                 window.selectedColor = "Warm";
+                return
             case "Dark":
                 window.selectedColor = "Dark";
+                return
             case "Light":
                 window.selectedColor = "Light";
+                return
         };
     });
     let columnInput = document.getElementById('column');
