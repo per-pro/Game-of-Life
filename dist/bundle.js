@@ -40,7 +40,7 @@ var Cell = /*#__PURE__*/function () {
       // console.log(window.selectedColor)
       switch (window.selectedColor) {
         case "Warm":
-          this.context.fillStyle = this.on ? '#FFDAB9' : '#98FF98';
+          this.context.fillStyle = this.on ? '#FFDAB9' : '#0B6623';
           break;
 
         case "Dark":
@@ -54,7 +54,8 @@ var Cell = /*#__PURE__*/function () {
         default:
           this.context.fillStyle = this.on ? 'red' : 'black';
           break;
-      } //'mint' - '#98FF98'
+      } //forest - 0B6623
+      //'mint' - '#98FF98'
       //'peach' - '#FFDAB9'
       //'tide' - '#B7B4AD'
       //'Oslo Gray' - '#8E9096'

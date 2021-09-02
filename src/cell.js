@@ -15,7 +15,7 @@ export default class Cell {
         // console.log(window.selectedColor)
         switch (window.selectedColor) {
             case "Warm":
-                this.context.fillStyle = this.on ? '#FFDAB9' : '#98FF98';
+                this.context.fillStyle = this.on ? '#FFDAB9' : '#0B6623';
                 break
             case "Dark":
                 this.context.fillStyle = this.on ? '#B7B4AD' : '#8E9096';
@@ -27,6 +27,7 @@ export default class Cell {
                 this.context.fillStyle = this.on ? 'red' : 'black';
                 break
         }
+        //forest - 0B6623
         //'mint' - '#98FF98'
         //'peach' - '#FFDAB9'
         //'tide' - '#B7B4AD'
