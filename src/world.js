@@ -1,4 +1,5 @@
 import Cell from './cell'
+import './global'
 
 export default class World {
     static numColumns = 100;

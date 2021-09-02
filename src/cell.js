@@ -13,7 +13,7 @@ export default class Cell {
     }
     draw() {
         debugger
-        switch (selectedColor) {
+        switch (window.selectedColor) {
             case "Warm":
                 this.context.fillStyle = this.on ? 'peach' : 'mint';
             case "Dark":

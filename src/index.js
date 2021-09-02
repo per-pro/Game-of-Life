@@ -12,13 +12,13 @@ window.onload = () => {
     colorInput.addEventListener('click', (e) => {
         switch('color') {
             case "Cold":
-                selectedColor = "Cold";
+                window.selectedColor = "Cold";
             case "Warm":
-                selectedColor = "Warm";
+                window.selectedColor = "Warm";
             case "Dark":
-                selectedColor = "Dark";
+                window.selectedColor = "Dark";
             case "Light":
-                selectedColor = "Light";
+                window.selectedColor = "Light";
         };
     });
     let columnInput = document.getElementById('column');

@@ -39,7 +39,7 @@ var Cell = /*#__PURE__*/function () {
     value: function draw() {
       debugger;
 
-      switch (selectedColor) {
+      switch (window.selectedColor) {
         case "Warm":
           this.context.fillStyle = this.on ? 'peach' : 'mint';
 
@@ -80,7 +80,7 @@ _defineProperty(Cell, "height", 10);
   \***********************/
 /***/ (() => {
 
-var selectedColor = "";
+window.selectedColor = "Cold";
 
 /***/ }),
 
@@ -96,6 +96,8 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */   "default": () => (/* binding */ World)
 /* harmony export */ });
 /* harmony import */ var _cell__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./cell */ "./src/cell.js");
+/* harmony import */ var _global__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./global */ "./src/global.js");
+/* harmony import */ var _global__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(_global__WEBPACK_IMPORTED_MODULE_1__);
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
 
 function _defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } }
@@ -103,6 +105,7 @@ function _defineProperties(target, props) { for (var i = 0; i < props.length; i+
 function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _defineProperties(Constructor.prototype, protoProps); if (staticProps) _defineProperties(Constructor, staticProps); return Constructor; }
 
 function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
+
 
 
 
@@ -293,16 +296,16 @@ window.onload = function () {
   colorInput.addEventListener('click', function (e) {
     switch ('color') {
       case "Cold":
-        selectedColor = "Cold";
+        window.selectedColor = "Cold";
 
       case "Warm":
-        selectedColor = "Warm";
+        window.selectedColor = "Warm";
 
       case "Dark":
-        selectedColor = "Dark";
+        window.selectedColor = "Dark";
 
       case "Light":
-        selectedColor = "Light";
+        window.selectedColor = "Light";
     }
 
     ;

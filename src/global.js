@@ -1,1 +1,1 @@
-let selectedColor = "";
+window.selectedColor = "Cold";
