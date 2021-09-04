@@ -27,6 +27,7 @@ export default class Cell {
                 this.context.fillStyle = this.on ? 'red' : 'black';
                 break
         }
+        //purple
         //'forest' - 0B6623
         //'mint' - '#98FF98'
         //'peach' - '#FFDAB9'

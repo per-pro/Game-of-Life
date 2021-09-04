@@ -54,7 +54,8 @@ var Cell = /*#__PURE__*/function () {
         default:
           this.context.fillStyle = this.on ? 'red' : 'black';
           break;
-      } //'forest' - 0B6623
+      } //purple
+      //'forest' - 0B6623
       //'mint' - '#98FF98'
       //'peach' - '#FFDAB9'
       //'tide' - '#B7B4AD'
