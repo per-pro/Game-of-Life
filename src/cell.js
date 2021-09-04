@@ -28,6 +28,7 @@ export default class Cell {
                 break
         }
         //purple
+        //teal
         //'forest' - 0B6623
         //'mint' - '#98FF98'
         //'peach' - '#FFDAB9'
