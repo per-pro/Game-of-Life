@@ -2,8 +2,6 @@ import Cell from './cell'
 import './global'
 
 export default class World {
-    static numColumns = 100;
-    static numRows = 100;
 
     constructor(canvasId) {
         this.canvas = document.getElementById(canvasId);
