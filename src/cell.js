@@ -1,8 +1,6 @@
 import './global'
 
 export default class Cell {
-    static width = 10;
-    static height = 10;
 
     constructor (context, gridX, gridY) {
         this.context = context;
@@ -12,7 +10,6 @@ export default class Cell {
         this.on = Math.random() > 0.5;
     }
     draw() {
-        // console.log(window.selectedColor)
         switch (window.selectedColor) {
             case "Warm":
                 this.context.fillStyle = this.on ? '#FFDAB9' : '#0B6623';
@@ -34,8 +31,8 @@ export default class Cell {
         //'Oslo Gray' - '#8E9096'
         //'coral' - '#FF7F50'
         //'Smoke' - '#848884'
-        this.context.fillRect(this.gridX * Cell.width,
-                              this.gridY * Cell.height,
-                              Cell.width, Cell.height);
+        this.context.fillRect(this.gridX * window.width,
+                              this.gridY * window.height,
+                              window.width, window.height);
     }
 }

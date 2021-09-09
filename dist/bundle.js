@@ -20,8 +20,6 @@ function _defineProperties(target, props) { for (var i = 0; i < props.length; i+
 
 function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _defineProperties(Constructor.prototype, protoProps); if (staticProps) _defineProperties(Constructor, staticProps); return Constructor; }
 
-function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
-
 
 
 var Cell = /*#__PURE__*/function () {
@@ -37,7 +35,6 @@ var Cell = /*#__PURE__*/function () {
   _createClass(Cell, [{
     key: "draw",
     value: function draw() {
-      // console.log(window.selectedColor)
       switch (window.selectedColor) {
         case "Warm":
           this.context.fillStyle = this.on ? '#FFDAB9' : '#0B6623';
@@ -63,16 +60,12 @@ var Cell = /*#__PURE__*/function () {
       //'Smoke' - '#848884'
 
 
-      this.context.fillRect(this.gridX * Cell.width, this.gridY * Cell.height, Cell.width, Cell.height);
+      this.context.fillRect(this.gridX * window.width, this.gridY * window.height, window.width, window.height);
     }
   }]);
 
   return Cell;
 }();
-
-_defineProperty(Cell, "width", 10);
-
-_defineProperty(Cell, "height", 10);
 
 
 
@@ -87,6 +80,8 @@ _defineProperty(Cell, "height", 10);
 window.selectedColor = "Cold";
 window.numColumns = 100;
 window.numRows = 100;
+window.width = 10;
+window.height = 10;
 
 /***/ }),
 
