@@ -13,16 +13,16 @@ export default class World {
     }
 
     makeGrid() {
-        for (let y = 0; y < World.numRows; y++) {
-            for (let x = 0; x < World.numColumns; x++) {
+        for (let y = 0; y < window.numRows; y++) {
+            for (let x = 0; x < window.numColumns; x++) {
                 this.entities.push(new Cell(this.context, x, y));
             }
         }
     }
 
     isOn(x, y) {
-        if (x < 0 || x >= World.numColumns 
-            || y < 0 || y >= World.numRows)  {
+        if (x < 0 || x >= window.numColumns 
+            || y < 0 || y >= window.numRows)  {
             return false;
         }
 
@@ -30,12 +30,12 @@ export default class World {
     }
 
     gridToIndex(x, y) {
-        return x + (y * World.numColumns);
+        return x + (y * window.numColumns);
     }
     
     checkNeighborhood() {
-        for (let x = 0; x < World.numColumns; x++) {
-            for (let y = 0; y < World.numRows; y++) {
+        for (let x = 0; x < window.numColumns; x++) {
+            for (let y = 0; y < window.numRows; y++) {
                 let numOn = this.isOn(x - 1, y - 1) + 
                             this.isOn(x, y - 1) +
                             this.isOn(x + 1, y - 1) +

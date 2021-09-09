@@ -85,6 +85,8 @@ _defineProperty(Cell, "height", 10);
 /***/ (() => {
 
 window.selectedColor = "Cold";
+window.numColumns = 100;
+window.numRows = 100;
 
 /***/ }),
 
@@ -108,8 +110,6 @@ function _defineProperties(target, props) { for (var i = 0; i < props.length; i+
 
 function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _defineProperties(Constructor.prototype, protoProps); if (staticProps) _defineProperties(Constructor, staticProps); return Constructor; }
 
-function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
-
 
 
 
@@ -132,8 +132,8 @@ var World = /*#__PURE__*/function () {
   _createClass(World, [{
     key: "makeGrid",
     value: function makeGrid() {
-      for (var y = 0; y < World.numRows; y++) {
-        for (var x = 0; x < World.numColumns; x++) {
+      for (var y = 0; y < window.numRows; y++) {
+        for (var x = 0; x < window.numColumns; x++) {
           this.entities.push(new _cell__WEBPACK_IMPORTED_MODULE_0__.default(this.context, x, y));
         }
       }
@@ -141,7 +141,7 @@ var World = /*#__PURE__*/function () {
   }, {
     key: "isOn",
     value: function isOn(x, y) {
-      if (x < 0 || x >= World.numColumns || y < 0 || y >= World.numRows) {
+      if (x < 0 || x >= window.numColumns || y < 0 || y >= window.numRows) {
         return false;
       }
 
@@ -150,13 +150,13 @@ var World = /*#__PURE__*/function () {
   }, {
     key: "gridToIndex",
     value: function gridToIndex(x, y) {
-      return x + y * World.numColumns;
+      return x + y * window.numColumns;
     }
   }, {
     key: "checkNeighborhood",
     value: function checkNeighborhood() {
-      for (var x = 0; x < World.numColumns; x++) {
-        for (var y = 0; y < World.numRows; y++) {
+      for (var x = 0; x < window.numColumns; x++) {
+        for (var y = 0; y < window.numRows; y++) {
           var numOn = this.isOn(x - 1, y - 1) + this.isOn(x, y - 1) + this.isOn(x + 1, y - 1) + this.isOn(x - 1, y) + this.isOn(x + 1, y) + this.isOn(x - 1, y + 1) + this.isOn(x, y + 1) + this.isOn(x + 1, y + 1);
           var index = this.gridToIndex(x, y);
 
@@ -204,10 +204,6 @@ var World = /*#__PURE__*/function () {
 
   return World;
 }();
-
-_defineProperty(World, "numColumns", 100);
-
-_defineProperty(World, "numRows", 100);
 
 
 
