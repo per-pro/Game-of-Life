@@ -1,7 +1,7 @@
 import './global'
 
 export default class Cell {
-
+    
     constructor (context, gridX, gridY) {
         this.context = context;
         this.gridX = gridX;
