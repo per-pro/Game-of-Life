@@ -27,6 +27,7 @@ window.onload = () => {
         };
     });
     let columnInput = document.getElementById('column');
+    // console.log('the color is ', colorInput.value)
     columnInput.addEventListener('click', (e) => {
         // switch statement
     });
