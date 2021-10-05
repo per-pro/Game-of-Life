@@ -117,7 +117,7 @@ var World = /*#__PURE__*/function () {
     this.canvas = document.getElementById(canvasId);
     this.context = this.canvas.getContext('2d');
     this.entities = [];
-    this.generation = 0;
+    this.numMoves = 0;
     this.makeGrid();
     window.requestAnimationFrame(function () {
       return _this.loop();
@@ -168,10 +168,12 @@ var World = /*#__PURE__*/function () {
       for (var i = 0; i < this.entities.length; i++) {
         this.entities[i].on = this.entities[i].nextOn;
       }
-    } // incrementGeneration() {
-    //     this.generation += 1;
-    // }
-
+    }
+  }, {
+    key: "incrementNumberOfMoves",
+    value: function incrementNumberOfMoves() {
+      this.numMoves += 1;
+    }
   }, {
     key: "loop",
     value: function loop() {
@@ -324,10 +326,10 @@ window.onload = function () {
   heightInput.addEventListener('click', function (e) {// switch statement
   });
   world.makeGrid();
-}; //play button
+}; //number of moves until steady state
+//play button
 //styling
 //custom color
-//number of moves until steady state
 })();
 
 /******/ })()
