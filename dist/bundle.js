@@ -310,7 +310,8 @@ window.onload = function () {
 
     ;
   });
-  var columnInput = document.getElementById('column');
+  var columnInput = document.getElementById('column'); // console.log('the color is ', colorInput.value)
+
   columnInput.addEventListener('click', function (e) {// switch statement
   });
   var rowInput = document.getElementById('row');
@@ -324,7 +325,9 @@ window.onload = function () {
   });
   world.makeGrid();
 }; //play button
-//default?
+//styling
+//custom color
+//number of moves until steady state
 })();
 
 /******/ })()

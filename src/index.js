@@ -47,4 +47,6 @@ window.onload = () => {
 }
 
 //play button
-//default?
+//styling
+//custom color
+//number of moves until steady state
