@@ -82,8 +82,8 @@ window.numColumns = 100;
 window.numRows = 100;
 window.width = 10;
 window.height = 10;
-stateA = [];
-stateB = [];
+state = [];
+sequentialState = [];
 
 /***/ }),
 
@@ -165,7 +165,8 @@ var World = /*#__PURE__*/function () {
             this.entities[index].nextOn = false;
           }
         }
-      }
+      } // this.entities is updated here
+
 
       for (var i = 0; i < this.entities.length; i++) {
         this.entities[i].on = this.entities[i].nextOn;
@@ -178,13 +179,27 @@ var World = /*#__PURE__*/function () {
     }
   }, {
     key: "isSteady",
-    value: function isSteady() {}
+    value: function isSteady(x, y) {
+      return x === y ? true : false;
+    }
+  }, {
+    key: "mapState",
+    value: function mapState() {
+      for (var i = 0; i < this.entities.length; i++) {
+        state[i] = this.entities[i].on;
+        sequentialState[i] = this.entities[i].nextOn;
+      }
+    }
   }, {
     key: "loop",
     value: function loop() {
       var _this2 = this;
 
-      this.checkNeighborhood();
+      console.log(this.isSteady());
+      this.checkNeighborhood(); // this.mapState(this.entities)
+      // if (this.isSteady(this.entities, state) === true) {
+      // }
+
       this.context.clearRect(0, 0, this.canvas.width, this.canvas.height);
 
       for (var i = 0; i < this.entities.length; i++) {

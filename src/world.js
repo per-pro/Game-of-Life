@@ -56,6 +56,7 @@ export default class World {
             }
         }
 
+        // this.entities is updated here
         for (let i = 0; i < this.entities.length; i++) {
             this.entities[i].on = this.entities[i].nextOn;
         }
@@ -65,18 +66,29 @@ export default class World {
         this.numMoves += 1;
     }
 
-    isSteady() {
+    isSteady(x, y) {
+        return x === y ? true : false
+    }
 
+    mapState() {
+        for (let i = 0; i < this.entities.length; i++) {
+            state[i] = this.entities[i].on
+            sequentialState[i] = this.entities[i].nextOn;
+        }
     }
 
     loop() {
+        console.log(this.isSteady())
         this.checkNeighborhood();
+        // this.mapState(this.entities)
+        // if (this.isSteady(this.entities, state) === true) {
+        // }
         this.context.clearRect(0, 0, this.canvas.width, this.canvas.height);
         for (let i = 0; i < this.entities.length; i++) {
             this.entities[i].draw();
         };
-
         this.incrementNumMoves();
+
         // console.log(this.entities);
 
         //check system stability: if state configuration is identical in two states in sequence
