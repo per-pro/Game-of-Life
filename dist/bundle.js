@@ -82,6 +82,8 @@ window.numColumns = 100;
 window.numRows = 100;
 window.width = 10;
 window.height = 10;
+stateA = [];
+stateB = [];
 
 /***/ }),
 
@@ -175,6 +177,9 @@ var World = /*#__PURE__*/function () {
       this.numMoves += 1;
     }
   }, {
+    key: "isSteady",
+    value: function isSteady() {}
+  }, {
     key: "loop",
     value: function loop() {
       var _this2 = this;
@@ -187,8 +192,8 @@ var World = /*#__PURE__*/function () {
       }
 
       ;
-      this.incrementNumMoves();
-      console.log(this.numMoves); //check system stability: if state configuration is identical in two states in sequence
+      this.incrementNumMoves(); // console.log(this.entities);
+      //check system stability: if state configuration is identical in two states in sequence
       //if yes, stop incrementing generation and display number until stable
 
       setTimeout(function () {

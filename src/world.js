@@ -65,17 +65,19 @@ export default class World {
         this.numMoves += 1;
     }
 
+    isSteady() {
+
+    }
+
     loop() {
         this.checkNeighborhood();
-
         this.context.clearRect(0, 0, this.canvas.width, this.canvas.height);
-
         for (let i = 0; i < this.entities.length; i++) {
             this.entities[i].draw();
         };
 
         this.incrementNumMoves();
-        console.log(this.numMoves);
+        // console.log(this.entities);
 
         //check system stability: if state configuration is identical in two states in sequence
         //if yes, stop incrementing generation and display number until stable
