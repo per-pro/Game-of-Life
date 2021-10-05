@@ -61,7 +61,7 @@ export default class World {
         }
     }
 
-    incrementNumberOfMoves() {
+    incrementNumMoves() {
         this.numMoves += 1;
     }
 
@@ -74,10 +74,10 @@ export default class World {
             this.entities[i].draw();
         };
 
-        // this.incrementGeneration();
-        // console.log(this.generation);
+        this.incrementNumMoves();
+        console.log(this.numMoves);
 
-        //check if system is stable: compare state configuration between any given state and the one after a successor generation
+        //check system stability: if state configuration is identical in two states in sequence
         //if yes, stop incrementing generation and display number until stable
 
         setTimeout( () => {

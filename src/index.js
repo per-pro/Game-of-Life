@@ -49,3 +49,4 @@ window.onload = () => {
 //play button
 //styling
 //custom color
+//variants

@@ -170,8 +170,8 @@ var World = /*#__PURE__*/function () {
       }
     }
   }, {
-    key: "incrementNumberOfMoves",
-    value: function incrementNumberOfMoves() {
+    key: "incrementNumMoves",
+    value: function incrementNumMoves() {
       this.numMoves += 1;
     }
   }, {
@@ -186,9 +186,9 @@ var World = /*#__PURE__*/function () {
         this.entities[i].draw();
       }
 
-      ; // this.incrementGeneration();
-      // console.log(this.generation);
-      //check if system is stable: compare state configuration between any given state and the one after a successor generation
+      ;
+      this.incrementNumMoves();
+      console.log(this.numMoves); //check system stability: if state configuration is identical in two states in sequence
       //if yes, stop incrementing generation and display number until stable
 
       setTimeout(function () {
@@ -330,6 +330,7 @@ window.onload = function () {
 //play button
 //styling
 //custom color
+//variants
 })();
 
 /******/ })()
