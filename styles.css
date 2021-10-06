@@ -19,5 +19,8 @@ body {
     flex-flow: column wrap;
     border: 1px solid black;
     background-color: lightskyblue;
+}
+
+.numMoves {
 
 }
