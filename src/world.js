@@ -78,10 +78,11 @@ export default class World {
     }
 
     loop() {
-        console.log(this.isSteady())
+        this.mapState();
         this.checkNeighborhood();
-        // this.mapState(this.entities)
-        // if (this.isSteady(this.entities, state) === true) {
+        this.mapState();
+        // if (this.isSteady(this.entities, state)) {
+
         // }
         this.context.clearRect(0, 0, this.canvas.width, this.canvas.height);
         for (let i = 0; i < this.entities.length; i++) {

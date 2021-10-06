@@ -195,9 +195,9 @@ var World = /*#__PURE__*/function () {
     value: function loop() {
       var _this2 = this;
 
-      console.log(this.isSteady());
-      this.checkNeighborhood(); // this.mapState(this.entities)
-      // if (this.isSteady(this.entities, state) === true) {
+      this.mapState();
+      this.checkNeighborhood();
+      this.mapState(); // if (this.isSteady(this.entities, state)) {
       // }
 
       this.context.clearRect(0, 0, this.canvas.width, this.canvas.height);
