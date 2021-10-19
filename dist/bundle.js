@@ -84,6 +84,7 @@ window.width = 10;
 window.height = 10;
 state = [];
 sequentialState = [];
+numMoves = 0;
 
 /***/ }),
 
@@ -119,7 +120,7 @@ var World = /*#__PURE__*/function () {
     this.canvas = document.getElementById(canvasId);
     this.context = this.canvas.getContext('2d');
     this.entities = [];
-    this.numMoves = 0;
+    numMoves = 0;
     this.makeGrid();
     window.requestAnimationFrame(function () {
       return _this.loop();
@@ -175,7 +176,7 @@ var World = /*#__PURE__*/function () {
   }, {
     key: "incrementNumMoves",
     value: function incrementNumMoves() {
-      this.numMoves += 1;
+      numMoves += 1;
     }
   }, {
     key: "isSteady",

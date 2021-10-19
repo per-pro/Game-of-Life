@@ -21,6 +21,13 @@ body {
     background-color: lightskyblue;
 }
 
-.numMoves {
+.game {
+    display: flex;
+    flex-direction: column;
+    float: right;
+}
 
+#numMoves {
+    display: flex;
+    float: top;
 }

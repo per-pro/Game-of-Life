@@ -5,3 +5,4 @@ window.width = 10;
 window.height = 10;
 state = [];
 sequentialState = [];
+numMoves = 0;
