@@ -177,6 +177,7 @@ var World = /*#__PURE__*/function () {
     key: "incrementNumMoves",
     value: function incrementNumMoves() {
       numMoves += 1;
+      console.log(numMoves);
     }
   }, {
     key: "isSteady",
