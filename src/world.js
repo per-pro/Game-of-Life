@@ -64,7 +64,7 @@ export default class World {
 
     incrementNumMoves() {
         numMoves += 1;
-        console.log(numMoves);
+        // console.log(numMoves);
     }
 
     isSteady(x, y) {

@@ -176,8 +176,7 @@ var World = /*#__PURE__*/function () {
   }, {
     key: "incrementNumMoves",
     value: function incrementNumMoves() {
-      numMoves += 1;
-      console.log(numMoves);
+      numMoves += 1; // console.log(numMoves);
     }
   }, {
     key: "isSteady",
@@ -348,7 +347,8 @@ window.onload = function () {
   heightInput.addEventListener('click', function (e) {// switch statement
   });
   world.makeGrid();
-}; //number of moves until steady state
+}; //additional tasks
+//number of moves until steady state
 //play button
 //styling
 //custom color

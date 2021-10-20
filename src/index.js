@@ -45,6 +45,8 @@ window.onload = () => {
     });
     world.makeGrid();
 }
+
+//additional tasks
 //number of moves until steady state
 //play button
 //styling
