@@ -7,7 +7,7 @@ export default class World {
         this.canvas = document.getElementById(canvasId);
         this.context = this.canvas.getContext('2d');
         this.entities = [];
-        numMoves = 0;
+        this.numMoves = 0;
         this.makeGrid();
         window.requestAnimationFrame(() => this.loop());
     }
@@ -63,8 +63,7 @@ export default class World {
     }
 
     incrementNumMoves() {
-        numMoves += 1;
-        // console.log(numMoves);
+        this.numMoves += 1;
     }
 
     isSteady(x, y) {

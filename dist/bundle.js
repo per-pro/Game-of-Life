@@ -120,7 +120,7 @@ var World = /*#__PURE__*/function () {
     this.canvas = document.getElementById(canvasId);
     this.context = this.canvas.getContext('2d');
     this.entities = [];
-    numMoves = 0;
+    this.numMoves = 0;
     this.makeGrid();
     window.requestAnimationFrame(function () {
       return _this.loop();
@@ -176,7 +176,7 @@ var World = /*#__PURE__*/function () {
   }, {
     key: "incrementNumMoves",
     value: function incrementNumMoves() {
-      numMoves += 1; // console.log(numMoves);
+      this.numMoves += 1;
     }
   }, {
     key: "isSteady",
@@ -347,8 +347,7 @@ window.onload = function () {
   heightInput.addEventListener('click', function (e) {// switch statement
   });
   world.makeGrid();
-}; //additional tasks
-//number of moves until steady state
+}; //number of moves until steady state
 //play button
 //styling
 //custom color
