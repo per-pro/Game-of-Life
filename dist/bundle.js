@@ -176,7 +176,7 @@ var World = /*#__PURE__*/function () {
   }, {
     key: "incrementNumMoves",
     value: function incrementNumMoves() {
-      this.numMoves += 1;
+      window.numMoves += 1;
     }
   }, {
     key: "isSteady",
@@ -208,7 +208,8 @@ var World = /*#__PURE__*/function () {
       }
 
       ;
-      this.incrementNumMoves(); // console.log(this.entities);
+      this.incrementNumMoves();
+      console.log(window.numMoves); // console.log(this.entities);
       //check system stability: if state configuration is identical in two states in sequence
       //if yes, stop incrementing generation and display number until stable
 

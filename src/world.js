@@ -63,7 +63,7 @@ export default class World {
     }
 
     incrementNumMoves() {
-        this.numMoves += 1;
+        window.numMoves += 1;
     }
 
     isSteady(x, y) {
@@ -89,6 +89,7 @@ export default class World {
             this.entities[i].draw();
         };
         this.incrementNumMoves();
+        console.log(window.numMoves)
 
         // console.log(this.entities);
 
