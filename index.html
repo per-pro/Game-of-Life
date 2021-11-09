@@ -53,12 +53,13 @@
         </div>
     
         <div class="numMoves">
-            <h2>Number of Moves <span id="moves"></span></h2>
+            <h2>Number of Moves until Stable <span id="moves"></span></h2>
             <script>
                 let myElement = document.getElementById("moves")
                 setInterval(() => myElement.innerHTML = window.numMoves, 100);
             </script>
         </div>
+
         <canvas id="canvas" width="1000" height="1000" style="border: 1px solid grey;"></canvas>
     </div>    
     <script defer src="./dist/bundle.js"></script> 

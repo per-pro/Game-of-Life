@@ -187,8 +187,7 @@ var World = /*#__PURE__*/function () {
     key: "mapState",
     value: function mapState() {
       for (var i = 0; i < this.entities.length; i++) {
-        state[i] = this.entities[i].on;
-        sequentialState[i] = this.entities[i].nextOn;
+        state[i] = this.entities[i].on; // sequentialState[i] = this.entities[i].nextOn;
       }
     }
   }, {
@@ -198,9 +197,7 @@ var World = /*#__PURE__*/function () {
 
       this.mapState();
       this.checkNeighborhood();
-      this.mapState(); // if (this.isSteady(this.entities, state)) {
-      // }
-
+      this.mapState();
       this.context.clearRect(0, 0, this.canvas.width, this.canvas.height);
 
       for (var i = 0; i < this.entities.length; i++) {
@@ -209,9 +206,7 @@ var World = /*#__PURE__*/function () {
 
       ;
       this.incrementNumMoves();
-      console.log(window.numMoves); // console.log(this.entities);
-      //check system stability: if state configuration is identical in two states in sequence
-      //if yes, stop incrementing generation and display number until stable
+      console.log(window.numMoves); //check system stability: if state configuration is identical in base state and the one after sequential state
 
       setTimeout(function () {
         window.requestAnimationFrame(function () {
@@ -348,7 +343,7 @@ window.onload = function () {
   heightInput.addEventListener('click', function (e) {// switch statement
   });
   world.makeGrid();
-}; //number of moves until steady state
+}; //steady state
 //play button
 //styling
 //custom color
