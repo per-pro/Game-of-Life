@@ -83,7 +83,7 @@ window.numRows = 100;
 window.width = 10;
 window.height = 10;
 window.state = [];
-window.sequentialState = [];
+window.postSequentialState = [];
 window.numMoves = 0;
 
 /***/ }),
@@ -187,7 +187,8 @@ var World = /*#__PURE__*/function () {
     key: "mapState",
     value: function mapState() {
       for (var i = 0; i < this.entities.length; i++) {
-        state[i] = this.entities[i].on; // sequentialState[i] = this.entities[i].nextOn;
+        state[i] = this.entities[i].on;
+        sequentialState[i] = this.entities[i].nextOn;
       }
     }
   }, {
@@ -196,8 +197,10 @@ var World = /*#__PURE__*/function () {
       var _this2 = this;
 
       this.mapState();
+      window.state = state;
       this.checkNeighborhood();
       this.mapState();
+      window.postSequentialState = sequentialState;
       this.context.clearRect(0, 0, this.canvas.width, this.canvas.height);
 
       for (var i = 0; i < this.entities.length; i++) {
@@ -206,7 +209,8 @@ var World = /*#__PURE__*/function () {
 
       ;
       this.incrementNumMoves();
-      console.log(window.numMoves); //check system stability: if state configuration is identical in base state and the one after sequential state
+      console.log(window.numMoves); // console.log(this.entities);
+      //check system stability: if state configuration is identical in base state and the state after sequential 
 
       setTimeout(function () {
         window.requestAnimationFrame(function () {

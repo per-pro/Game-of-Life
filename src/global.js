@@ -4,5 +4,5 @@ window.numRows = 100;
 window.width = 10;
 window.height = 10;
 window.state = [];
-window.sequentialState = [];
+window.postSequentialState = [];
 window.numMoves = 0;

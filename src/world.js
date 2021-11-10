@@ -73,14 +73,16 @@ export default class World {
     mapState() {
         for (let i = 0; i < this.entities.length; i++) {
             state[i] = this.entities[i].on
-            // sequentialState[i] = this.entities[i].nextOn;
+            sequentialState[i] = this.entities[i].nextOn;
         }
     }
 
     loop() {
         this.mapState();
+        window.state = state;
         this.checkNeighborhood();
         this.mapState();
+        window.postSequentialState = sequentialState;
         this.context.clearRect(0, 0, this.canvas.width, this.canvas.height);
         for (let i = 0; i < this.entities.length; i++) {
             this.entities[i].draw();
@@ -88,7 +90,9 @@ export default class World {
         this.incrementNumMoves();
         console.log(window.numMoves)
 
-        //check system stability: if state configuration is identical in base state and the one after sequential state
+        // console.log(this.entities);
+
+        //check system stability: if state configuration is identical in base state and the state after sequential 
 
         setTimeout( () => {
             window.requestAnimationFrame(() => this.loop())
