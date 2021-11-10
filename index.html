@@ -56,7 +56,13 @@
             <h2>Number of Moves until Stable <span id="moves"></span></h2>
             <script>
                 let myElement = document.getElementById("moves")
-                setInterval(() => myElement.innerHTML = window.numMoves, 100);
+                setInterval(() => {
+                    if (window.state != window.postSequentialState) {
+                        myElement.innerHTML = window.numMoves, 100;
+                    } else {
+                        myElement.innerHTML = window.numMoves;
+                    }
+                })
             </script>
         </div>
 
