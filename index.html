@@ -40,29 +40,23 @@
                 <!-- consider adding a play button to differentiate default simulation from changes -->
                 <br>
             </div>
-            
-            <!-- <div class="variations">
+<!--             
+            <div class="variations">
                 <h2>Variations</h2>
-                
+                 -->
                 <!-- <input type="button" value="rules"> -->
-                <br>
+                <!-- <br> -->
                 <!-- <input type="button" value="cell shape">
                 <br>
                 <input type="button" value="grid shape">      -->
-            <!-- </div> --> -->
+            <!-- </div> -->
         </div>
     
         <div class="numMoves">
             <h2>Number of Moves until Stable <span id="moves"></span></h2>
             <script>
                 let myElement = document.getElementById("moves")
-                setInterval(() => {
-                    if (window.state != window.postSequentialState) {
-                        myElement.innerHTML = window.numMoves, 100;
-                    } else {
-                        myElement.innerHTML = window.numMoves;
-                    }
-                })
+                setInterval(() => myElement.innerHTML = window.numMoves, 100);
             </script>
         </div>
 

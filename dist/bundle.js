@@ -209,9 +209,7 @@ var World = /*#__PURE__*/function () {
 
       ;
       this.incrementNumMoves();
-      console.log(window.numMoves); // console.log(this.entities);
-      //check system stability: if state configuration is identical in base state and the state after sequential 
-
+      console.log(window.numMoves);
       setTimeout(function () {
         window.requestAnimationFrame(function () {
           return _this2.loop();

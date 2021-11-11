@@ -56,7 +56,6 @@ export default class World {
             }
         }
 
-        // this.entities is updated here
         for (let i = 0; i < this.entities.length; i++) {
             this.entities[i].on = this.entities[i].nextOn;
         }
@@ -89,11 +88,6 @@ export default class World {
         };
         this.incrementNumMoves();
         console.log(window.numMoves)
-
-        // console.log(this.entities);
-
-        //check system stability: if state configuration is identical in base state and the state after sequential 
-
         setTimeout( () => {
             window.requestAnimationFrame(() => this.loop())
         }, 100);
