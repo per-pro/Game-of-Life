@@ -9,6 +9,7 @@ export default class World {
         this.entities = [];
         this.numMoves = 0;
         this.makeGrid();
+        this.sequentialState = [];
         window.requestAnimationFrame(() => this.loop());
     }
 
@@ -71,8 +72,8 @@ export default class World {
 
     mapState() {
         for (let i = 0; i < this.entities.length; i++) {
-            state[i] = this.entities[i].on
-            sequentialState[i] = this.entities[i].nextOn;
+            state[i] = this.entities[i].on;
+            this.sequentialState[i] = this.entities[i].nextOn;
         }
     }
 
@@ -81,13 +82,13 @@ export default class World {
         window.state = state;
         this.checkNeighborhood();
         this.mapState();
-        window.postSequentialState = sequentialState;
+        window.postSequentialState = this.sequentialState;
         this.context.clearRect(0, 0, this.canvas.width, this.canvas.height);
         for (let i = 0; i < this.entities.length; i++) {
             this.entities[i].draw();
         };
         this.incrementNumMoves();
-        console.log(window.numMoves)
+        console.log(window.postSequentialState)
         setTimeout( () => {
             window.requestAnimationFrame(() => this.loop())
         }, 100);

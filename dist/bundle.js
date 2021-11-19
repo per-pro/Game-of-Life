@@ -122,6 +122,7 @@ var World = /*#__PURE__*/function () {
     this.entities = [];
     this.numMoves = 0;
     this.makeGrid();
+    this.sequentialState = [];
     window.requestAnimationFrame(function () {
       return _this.loop();
     });
@@ -166,8 +167,7 @@ var World = /*#__PURE__*/function () {
             this.entities[index].nextOn = false;
           }
         }
-      } // this.entities is updated here
-
+      }
 
       for (var i = 0; i < this.entities.length; i++) {
         this.entities[i].on = this.entities[i].nextOn;
@@ -188,7 +188,7 @@ var World = /*#__PURE__*/function () {
     value: function mapState() {
       for (var i = 0; i < this.entities.length; i++) {
         state[i] = this.entities[i].on;
-        sequentialState[i] = this.entities[i].nextOn;
+        this.sequentialState[i] = this.entities[i].nextOn;
       }
     }
   }, {
@@ -200,7 +200,7 @@ var World = /*#__PURE__*/function () {
       window.state = state;
       this.checkNeighborhood();
       this.mapState();
-      window.postSequentialState = sequentialState;
+      window.postSequentialState = this.sequentialState;
       this.context.clearRect(0, 0, this.canvas.width, this.canvas.height);
 
       for (var i = 0; i < this.entities.length; i++) {
