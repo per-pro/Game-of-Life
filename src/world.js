@@ -79,16 +79,16 @@ export default class World {
 
     loop() {
         this.mapState();
-        window.state = state;
+        window.initialState = state;
         this.checkNeighborhood();
         this.mapState();
         window.postSequentialState = this.sequentialState;
+        console.log(this.isSteady(, window.postSequentialState))
         this.context.clearRect(0, 0, this.canvas.width, this.canvas.height);
         for (let i = 0; i < this.entities.length; i++) {
             this.entities[i].draw();
         };
         this.incrementNumMoves();
-        console.log(window.postSequentialState)
         setTimeout( () => {
             window.requestAnimationFrame(() => this.loop())
         }, 100);
