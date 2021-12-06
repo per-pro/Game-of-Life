@@ -1,6 +1,76 @@
 /******/ (() => { // webpackBootstrap
 /******/ 	var __webpack_modules__ = ({
 
+/***/ "./src/cell.js":
+/*!*********************!*\
+  !*** ./src/cell.js ***!
+  \*********************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (/* binding */ Cell)
+/* harmony export */ });
+/* harmony import */ var _global__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./global */ "./src/global.js");
+/* harmony import */ var _global__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_global__WEBPACK_IMPORTED_MODULE_0__);
+function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+function _defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } }
+
+function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _defineProperties(Constructor.prototype, protoProps); if (staticProps) _defineProperties(Constructor, staticProps); return Constructor; }
+
+
+
+var Cell = /*#__PURE__*/function () {
+  function Cell(context, gridX, gridY) {
+    _classCallCheck(this, Cell);
+
+    this.context = context;
+    this.gridX = gridX;
+    this.gridY = gridY;
+    this.on = Math.random() > 0.5;
+  }
+
+  _createClass(Cell, [{
+    key: "draw",
+    value: function draw() {
+      switch (window.selectedColor) {
+        case "Warm":
+          this.context.fillStyle = this.on ? '#FFDAB9' : '#0B6623';
+          break;
+
+        case "Dark":
+          this.context.fillStyle = this.on ? '#B7B4AD' : '#8E9096';
+          break;
+
+        case "Light":
+          this.context.fillStyle = this.on ? '#FF7F50' : '#848884';
+          break;
+
+        default:
+          this.context.fillStyle = this.on ? 'red' : 'black';
+          break;
+      } //'forest' - 0B6623
+      //'mint' - '#98FF98'
+      //'peach' - '#FFDAB9'
+      //'tide' - '#B7B4AD'
+      //'Oslo Gray' - '#8E9096'
+      //'coral' - '#FF7F50'
+      //'Smoke' - '#848884'
+
+
+      this.context.fillRect(this.gridX * window.width, this.gridY * window.height, window.width, window.height);
+    }
+  }]);
+
+  return Cell;
+}();
+
+
+
+/***/ }),
+
 /***/ "./src/global.js":
 /*!***********************!*\
   !*** ./src/global.js ***!
@@ -22,9 +92,136 @@ window.numMoves = 0;
 /*!**********************!*\
   !*** ./src/world.js ***!
   \**********************/
-/***/ (() => {
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
-throw new Error("Module build failed (from ./node_modules/babel-loader/lib/index.js):\nSyntaxError: /home/imfarhi/Desktop/GameofLife/src/world.js: Unexpected token ',' (86:35)\n\n\u001b[0m \u001b[90m 84 |\u001b[39m         \u001b[36mthis\u001b[39m\u001b[33m.\u001b[39mmapState()\u001b[33m;\u001b[39m\u001b[0m\n\u001b[0m \u001b[90m 85 |\u001b[39m         window\u001b[33m.\u001b[39mpostSequentialState \u001b[33m=\u001b[39m \u001b[36mthis\u001b[39m\u001b[33m.\u001b[39msequentialState\u001b[33m;\u001b[39m\u001b[0m\n\u001b[0m\u001b[31m\u001b[1m>\u001b[22m\u001b[39m\u001b[90m 86 |\u001b[39m         console\u001b[33m.\u001b[39mlog(\u001b[36mthis\u001b[39m\u001b[33m.\u001b[39misSteady(\u001b[33m,\u001b[39m window\u001b[33m.\u001b[39mpostSequentialState))\u001b[0m\n\u001b[0m \u001b[90m    |\u001b[39m                                    \u001b[31m\u001b[1m^\u001b[22m\u001b[39m\u001b[0m\n\u001b[0m \u001b[90m 87 |\u001b[39m         \u001b[36mthis\u001b[39m\u001b[33m.\u001b[39mcontext\u001b[33m.\u001b[39mclearRect(\u001b[35m0\u001b[39m\u001b[33m,\u001b[39m \u001b[35m0\u001b[39m\u001b[33m,\u001b[39m \u001b[36mthis\u001b[39m\u001b[33m.\u001b[39mcanvas\u001b[33m.\u001b[39mwidth\u001b[33m,\u001b[39m \u001b[36mthis\u001b[39m\u001b[33m.\u001b[39mcanvas\u001b[33m.\u001b[39mheight)\u001b[33m;\u001b[39m\u001b[0m\n\u001b[0m \u001b[90m 88 |\u001b[39m         \u001b[36mfor\u001b[39m (\u001b[36mlet\u001b[39m i \u001b[33m=\u001b[39m \u001b[35m0\u001b[39m\u001b[33m;\u001b[39m i \u001b[33m<\u001b[39m \u001b[36mthis\u001b[39m\u001b[33m.\u001b[39mentities\u001b[33m.\u001b[39mlength\u001b[33m;\u001b[39m i\u001b[33m++\u001b[39m) {\u001b[0m\n\u001b[0m \u001b[90m 89 |\u001b[39m             \u001b[36mthis\u001b[39m\u001b[33m.\u001b[39mentities[i]\u001b[33m.\u001b[39mdraw()\u001b[33m;\u001b[39m\u001b[0m\n    at Parser._raise (/home/imfarhi/Desktop/GameofLife/node_modules/@babel/parser/lib/index.js:776:17)\n    at Parser.raiseWithData (/home/imfarhi/Desktop/GameofLife/node_modules/@babel/parser/lib/index.js:769:17)\n    at Parser.raise (/home/imfarhi/Desktop/GameofLife/node_modules/@babel/parser/lib/index.js:737:17)\n    at Parser.parseExprListItem (/home/imfarhi/Desktop/GameofLife/node_modules/@babel/parser/lib/index.js:11774:14)\n    at Parser.parseCallExpressionArguments (/home/imfarhi/Desktop/GameofLife/node_modules/@babel/parser/lib/index.js:10835:22)\n    at Parser.parseCoverCallAndAsyncArrowHead (/home/imfarhi/Desktop/GameofLife/node_modules/@babel/parser/lib/index.js:10745:29)\n    at Parser.parseSubscript (/home/imfarhi/Desktop/GameofLife/node_modules/@babel/parser/lib/index.js:10681:19)\n    at Parser.parseSubscripts (/home/imfarhi/Desktop/GameofLife/node_modules/@babel/parser/lib/index.js:10654:19)\n    at Parser.parseExprSubscripts (/home/imfarhi/Desktop/GameofLife/node_modules/@babel/parser/lib/index.js:10643:17)\n    at Parser.parseUpdate (/home/imfarhi/Desktop/GameofLife/node_modules/@babel/parser/lib/index.js:10617:21)");
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (/* binding */ World)
+/* harmony export */ });
+/* harmony import */ var _cell__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./cell */ "./src/cell.js");
+/* harmony import */ var _global__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./global */ "./src/global.js");
+/* harmony import */ var _global__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(_global__WEBPACK_IMPORTED_MODULE_1__);
+function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+function _defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } }
+
+function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _defineProperties(Constructor.prototype, protoProps); if (staticProps) _defineProperties(Constructor, staticProps); return Constructor; }
+
+
+
+
+var World = /*#__PURE__*/function () {
+  function World(canvasId) {
+    var _this = this;
+
+    _classCallCheck(this, World);
+
+    this.canvas = document.getElementById(canvasId);
+    this.context = this.canvas.getContext('2d');
+    this.entities = [];
+    this.numMoves = 0;
+    this.makeGrid();
+    this.sequentialState = [];
+    window.requestAnimationFrame(function () {
+      return _this.loop();
+    });
+  }
+
+  _createClass(World, [{
+    key: "makeGrid",
+    value: function makeGrid() {
+      for (var y = 0; y < window.numRows; y++) {
+        for (var x = 0; x < window.numColumns; x++) {
+          this.entities.push(new _cell__WEBPACK_IMPORTED_MODULE_0__.default(this.context, x, y));
+        }
+      }
+    }
+  }, {
+    key: "isOn",
+    value: function isOn(x, y) {
+      if (x < 0 || x >= window.numColumns || y < 0 || y >= window.numRows) {
+        return false;
+      }
+
+      return this.entities[this.gridToIndex(x, y)].on ? 1 : 0;
+    }
+  }, {
+    key: "gridToIndex",
+    value: function gridToIndex(x, y) {
+      return x + y * window.numColumns;
+    }
+  }, {
+    key: "checkNeighborhood",
+    value: function checkNeighborhood() {
+      for (var x = 0; x < window.numColumns; x++) {
+        for (var y = 0; y < window.numRows; y++) {
+          var numOn = this.isOn(x - 1, y - 1) + this.isOn(x, y - 1) + this.isOn(x + 1, y - 1) + this.isOn(x - 1, y) + this.isOn(x + 1, y) + this.isOn(x - 1, y + 1) + this.isOn(x, y + 1) + this.isOn(x + 1, y + 1);
+          var index = this.gridToIndex(x, y);
+
+          if (numOn == 2) {
+            this.entities[index].nextOn = this.entities[index].on;
+          } else if (numOn == 3) {
+            this.entities[index].nextOn = true;
+          } else {
+            this.entities[index].nextOn = false;
+          }
+        }
+      }
+
+      for (var i = 0; i < this.entities.length; i++) {
+        this.entities[i].on = this.entities[i].nextOn;
+      }
+    }
+  }, {
+    key: "incrementNumMoves",
+    value: function incrementNumMoves() {
+      window.numMoves += 1;
+    }
+  }, {
+    key: "isSteady",
+    value: function isSteady(x, y) {
+      return x === y ? true : false;
+    }
+  }, {
+    key: "mapState",
+    value: function mapState() {
+      for (var i = 0; i < this.entities.length; i++) {
+        state[i] = this.entities[i].on;
+        this.sequentialState[i] = this.entities[i].nextOn;
+      }
+    }
+  }, {
+    key: "loop",
+    value: function loop() {
+      var _this2 = this;
+
+      this.mapState();
+      window.initialState = state;
+      this.checkNeighborhood();
+      this.mapState();
+      window.postSequentialState = this.sequentialState;
+      console.log(this.isSteady(window.initialState, window.postSequentialState));
+      this.context.clearRect(0, 0, this.canvas.width, this.canvas.height);
+
+      for (var i = 0; i < this.entities.length; i++) {
+        this.entities[i].draw();
+      }
+
+      ;
+      this.incrementNumMoves();
+      setTimeout(function () {
+        window.requestAnimationFrame(function () {
+          return _this2.loop();
+        });
+      }, 100);
+    }
+  }]);
+
+  return World;
+}();
+
+
 
 /***/ })
 
