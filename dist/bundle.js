@@ -82,8 +82,8 @@ window.numColumns = 100;
 window.numRows = 100;
 window.width = 10;
 window.height = 10;
-window.state = [];
-window.sequentialState = [];
+window.initialState = [];
+window.postSequentialState = [];
 window.numMoves = 0;
 
 /***/ }),
@@ -120,8 +120,9 @@ var World = /*#__PURE__*/function () {
     this.canvas = document.getElementById(canvasId);
     this.context = this.canvas.getContext('2d');
     this.entities = [];
-    numMoves = 0;
+    this.numMoves = 0;
     this.makeGrid();
+    this.sequentialState = [];
     window.requestAnimationFrame(function () {
       return _this.loop();
     });
@@ -166,8 +167,7 @@ var World = /*#__PURE__*/function () {
             this.entities[index].nextOn = false;
           }
         }
-      } // this.entities is updated here
-
+      }
 
       for (var i = 0; i < this.entities.length; i++) {
         this.entities[i].on = this.entities[i].nextOn;
@@ -176,7 +176,7 @@ var World = /*#__PURE__*/function () {
   }, {
     key: "incrementNumMoves",
     value: function incrementNumMoves() {
-      numMoves += 1; // console.log(numMoves);
+      window.numMoves += 1;
     }
   }, {
     key: "isSteady",
@@ -188,7 +188,7 @@ var World = /*#__PURE__*/function () {
     value: function mapState() {
       for (var i = 0; i < this.entities.length; i++) {
         state[i] = this.entities[i].on;
-        sequentialState[i] = this.entities[i].nextOn;
+        this.sequentialState[i] = this.entities[i].nextOn;
       }
     }
   }, {
@@ -197,10 +197,11 @@ var World = /*#__PURE__*/function () {
       var _this2 = this;
 
       this.mapState();
+      window.initialState = state;
       this.checkNeighborhood();
-      this.mapState(); // if (this.isSteady(this.entities, state)) {
-      // }
-
+      this.mapState();
+      window.postSequentialState = this.sequentialState;
+      console.log(this.isSteady(window.initialState, window.postSequentialState));
       this.context.clearRect(0, 0, this.canvas.width, this.canvas.height);
 
       for (var i = 0; i < this.entities.length; i++) {
@@ -208,10 +209,7 @@ var World = /*#__PURE__*/function () {
       }
 
       ;
-      this.incrementNumMoves(); // console.log(this.entities);
-      //check system stability: if state configuration is identical in two states in sequence
-      //if yes, stop incrementing generation and display number until stable
-
+      this.incrementNumMoves();
       setTimeout(function () {
         window.requestAnimationFrame(function () {
           return _this2.loop();
@@ -347,8 +345,7 @@ window.onload = function () {
   heightInput.addEventListener('click', function (e) {// switch statement
   });
   world.makeGrid();
-}; //additional tasks
-//number of moves until steady state
+}; //steady state
 //play button
 //styling
 //custom color

@@ -7,8 +7,9 @@ export default class World {
         this.canvas = document.getElementById(canvasId);
         this.context = this.canvas.getContext('2d');
         this.entities = [];
-        numMoves = 0;
+        this.numMoves = 0;
         this.makeGrid();
+        this.sequentialState = [];
         window.requestAnimationFrame(() => this.loop());
     }
 
@@ -56,15 +57,13 @@ export default class World {
             }
         }
 
-        // this.entities is updated here
         for (let i = 0; i < this.entities.length; i++) {
             this.entities[i].on = this.entities[i].nextOn;
         }
     }
 
     incrementNumMoves() {
-        numMoves += 1;
-        // console.log(numMoves);
+        window.numMoves += 1;
     }
 
     isSteady(x, y) {
@@ -73,29 +72,23 @@ export default class World {
 
     mapState() {
         for (let i = 0; i < this.entities.length; i++) {
-            state[i] = this.entities[i].on
-            sequentialState[i] = this.entities[i].nextOn;
+            state[i] = this.entities[i].on;
+            this.sequentialState[i] = this.entities[i].nextOn;
         }
     }
 
     loop() {
         this.mapState();
+        window.initialState = state;
         this.checkNeighborhood();
         this.mapState();
-        // if (this.isSteady(this.entities, state)) {
-
-        // }
+        window.postSequentialState = this.sequentialState;
+        console.log(this.isSteady(window.initialState, window.postSequentialState))
         this.context.clearRect(0, 0, this.canvas.width, this.canvas.height);
         for (let i = 0; i < this.entities.length; i++) {
             this.entities[i].draw();
         };
         this.incrementNumMoves();
-
-        // console.log(this.entities);
-
-        //check system stability: if state configuration is identical in two states in sequence
-        //if yes, stop incrementing generation and display number until stable
-
         setTimeout( () => {
             window.requestAnimationFrame(() => this.loop())
         }, 100);

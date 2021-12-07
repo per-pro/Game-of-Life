@@ -6,11 +6,10 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Game of Life</title>
     <link rel="stylesheet" href="./styles.css">
-    <script>
-        document.getElementById("numMoves").innerHTML = window.numMoves;
-    </script>
 </head>
 <body>
+    <script src="./src/global.js">
+    </script>
     <h1>Game of Life</h1>
 
     <div class="container">
@@ -35,43 +34,35 @@
                     <option value="Warm">Warm: Forest/Peach</option>
                     <option value="Dark">Dark: Tide/Oslo Gray</option>
                     <option value="Light">Light: Coral/Smoke</option>
-                    <option value="Custom" onselect="colorPicker">Custom</option>
-                    <script>
-                        // <input type="color" id="colorpicker" value="#0000ff">
-                        //plan for custom color: (1) create a modal, (2) choose fore/background, (3) pass values to cell
-                    </script>
-                    // <!-- <label for="colorpicker">Foreground</label>
-                    
+                    <!-- add in custom color scheme later, if time permits -->
+                    <!-- <option value="5">Custom</option> -->
                 </select>
-                <br>
-                <input type="button" value="Play">
-                <!-- add a play button to differentiate default simulation from changes -->
+                <!-- consider adding a play button to differentiate default simulation from changes -->
                 <br>
             </div>
-            
+<!--             
             <div class="variations">
                 <h2>Variations</h2>
-                
+                 -->
                 <!-- <input type="button" value="rules"> -->
-                <br>
+                <!-- <br> -->
                 <!-- <input type="button" value="cell shape">
                 <br>
                 <input type="button" value="grid shape">      -->
-            </div>
+            <!-- </div> -->
         </div>
-    
-        <div class="game">
-            <h2>Number of Moves 
-                <!-- <script type="text/javascript">
-                document.write(window.numMoves)
-              </script> -->
-                <span id="numMoves"></span> 
-            </h2>
-            <canvas id="canvas" width="1000" height="1000" style="border: 1px solid grey;"></canvas>
+    <!-- this is the bit of code with the access problem that needs to be fixed -->
+        <div class="numMoves">
+            <h2>Number of Moves until Stable <span id="moves"></span></h2>
+            <script>
+                let myElement = document.getElementById("moves")
+                setInterval(() => myElement.innerHTML = window.numMoves, 100);
+            </script>
         </div>
-    </div>
-    
-    
+
+        <canvas id="canvas" width="1000" height="1000" style="border: 1px solid grey;"></canvas>
+    </div>    
     <script defer src="./dist/bundle.js"></script> 
+    
 </body>
 </html>
