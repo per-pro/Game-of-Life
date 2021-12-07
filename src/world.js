@@ -72,18 +72,17 @@ export default class World {
 
     mapState() {
         for (let i = 0; i < this.entities.length; i++) {
-            state[i] = this.entities[i].on;
+            window.initialState[i] = this.entities[i].on;
             this.sequentialState[i] = this.entities[i].nextOn;
         }
     }
 
     loop() {
         this.mapState();
-        window.initialState = state;
         this.checkNeighborhood();
         this.mapState();
         window.postSequentialState = this.sequentialState;
-        console.log(this.isSteady(window.initialState, window.postSequentialState))
+        // console.log(this.isSteady(window.initialState, window.postSequentialState))
         this.context.clearRect(0, 0, this.canvas.width, this.canvas.height);
         for (let i = 0; i < this.entities.length; i++) {
             this.entities[i].draw();

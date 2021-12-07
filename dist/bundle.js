@@ -187,7 +187,7 @@ var World = /*#__PURE__*/function () {
     key: "mapState",
     value: function mapState() {
       for (var i = 0; i < this.entities.length; i++) {
-        state[i] = this.entities[i].on;
+        window.initialState[i] = this.entities[i].on;
         this.sequentialState[i] = this.entities[i].nextOn;
       }
     }
@@ -197,11 +197,10 @@ var World = /*#__PURE__*/function () {
       var _this2 = this;
 
       this.mapState();
-      window.initialState = state;
       this.checkNeighborhood();
       this.mapState();
-      window.postSequentialState = this.sequentialState;
-      console.log(this.isSteady(window.initialState, window.postSequentialState));
+      window.postSequentialState = this.sequentialState; // console.log(this.isSteady(window.initialState, window.postSequentialState))
+
       this.context.clearRect(0, 0, this.canvas.width, this.canvas.height);
 
       for (var i = 0; i < this.entities.length; i++) {
