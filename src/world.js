@@ -79,15 +79,17 @@ export default class World {
         }
     }
 
+
+
     loop() {
         this.checkNeighborhood();
         this.context.clearRect(0, 0, this.canvas.width, this.canvas.height);
         for (let i = 0; i < this.entities.length; i++) {
             this.entities[i].draw();
         };
-        this.entities
         window.stateArray.push(this.entities);
-        console.log(window.stateArray[])
+        console.log(window.stateArray)
+        console.log(this.isStable(window.stateArray))
         this.incrementNumMoves();
         setTimeout( () => {
             window.requestAnimationFrame(() => this.loop())
