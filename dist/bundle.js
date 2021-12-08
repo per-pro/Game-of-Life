@@ -181,8 +181,8 @@ var World = /*#__PURE__*/function () {
   }, {
     key: "isStable",
     value: function isStable(array) {
-      if (array.length > 3 && array[array.length - 1] === array[array.length - 3]) {
-        return true;
+      if (array.length > 2) {
+        return array[array.length - 1] === array[array.length - 3];
       } else {
         return false;
       }
@@ -212,8 +212,8 @@ var World = /*#__PURE__*/function () {
       }
 
       ;
-      window.stateArray.push(this.entities);
-      console.log(isStable(window.stateArray));
+      window.stateArray.push(this.entities); // console.log(isStable(window.stateArray))
+
       this.incrementNumMoves();
       setTimeout(function () {
         window.requestAnimationFrame(function () {

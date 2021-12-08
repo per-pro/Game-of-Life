@@ -68,8 +68,8 @@ export default class World {
     }
 
     isStable(array) {
-        if (array.length > 3 && array[array.length - 1] === array[array.length - 3]) {
-            return true
+        if (array.length > 2) {
+            return array[array.length - 1] === array[array.length - 3]
         } else {
             return false
         }
@@ -96,7 +96,7 @@ export default class World {
             this.entities[i].draw();
         };
         window.stateArray.push(this.entities);
-        console.log(isStable(window.stateArray))
+        // console.log(isStable(window.stateArray))
         this.incrementNumMoves();
         setTimeout( () => {
             window.requestAnimationFrame(() => this.loop())
