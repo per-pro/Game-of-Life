@@ -212,8 +212,8 @@ var World = /*#__PURE__*/function () {
       }
 
       ;
-      window.stateArray.push(this.entities); // console.log(isStable(window.stateArray))
-
+      window.stateArray.push(this.entities);
+      console.log(this.isStable(window.stateArray));
       this.incrementNumMoves();
       setTimeout(function () {
         window.requestAnimationFrame(function () {

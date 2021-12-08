@@ -96,7 +96,7 @@ export default class World {
             this.entities[i].draw();
         };
         window.stateArray.push(this.entities);
-        // console.log(isStable(window.stateArray))
+        console.log(this.isStable(window.stateArray))
         this.incrementNumMoves();
         setTimeout( () => {
             window.requestAnimationFrame(() => this.loop())
