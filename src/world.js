@@ -9,8 +9,8 @@ export default class World {
         this.entities = [];
         this.numMoves = 0;
         this.makeGrid();
-        this.state = [];
-        this.sequentialState = [];
+        // this.state = [];
+        // this.sequentialState = [];
         window.requestAnimationFrame(() => this.loop());
     }
 
@@ -67,12 +67,16 @@ export default class World {
         window.numMoves += 1;
     }
 
-    isSteady(x, y) {
-        return x === y ? true : false
+    isStable(array) {
+        if (array.length > 3 && array[array.length - 1] === array[array.length - 3]) {
+            return true
+        } else {
+            return false
+        }
     }
 
 
-    //I can get rid of mapState if I compare the states in a hash
+    //I can get rid of mapState if I compare the states in an array
     // mapState() {
     //     for (let i = 0; i < this.entities.length; i++) {
     //         this.state[i] = this.entities[i].on;
@@ -82,7 +86,7 @@ export default class World {
 
     loop() {
         // this.mapState();
-        window.initialState = this.state;
+        // window.initialState = this.state;
         this.checkNeighborhood();
         // this.mapState();
         // window.postSequentialState = this.sequentialState;
@@ -91,6 +95,8 @@ export default class World {
         for (let i = 0; i < this.entities.length; i++) {
             this.entities[i].draw();
         };
+        window.stateArray.push(this.entities);
+        console.log(isStable(window.stateArray))
         this.incrementNumMoves();
         setTimeout( () => {
             window.requestAnimationFrame(() => this.loop())

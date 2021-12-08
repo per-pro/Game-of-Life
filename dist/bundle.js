@@ -82,8 +82,7 @@ window.numColumns = 100;
 window.numRows = 100;
 window.width = 10;
 window.height = 10;
-window.initialState = [];
-window.postSequentialState = [];
+window.stateArray = [];
 window.numMoves = 0;
 
 /***/ }),
@@ -121,9 +120,9 @@ var World = /*#__PURE__*/function () {
     this.context = this.canvas.getContext('2d');
     this.entities = [];
     this.numMoves = 0;
-    this.makeGrid();
-    this.state = [];
-    this.sequentialState = [];
+    this.makeGrid(); // this.state = [];
+    // this.sequentialState = [];
+
     window.requestAnimationFrame(function () {
       return _this.loop();
     });
@@ -180,10 +179,14 @@ var World = /*#__PURE__*/function () {
       window.numMoves += 1;
     }
   }, {
-    key: "isSteady",
-    value: function isSteady(x, y) {
-      return x === y ? true : false;
-    } //I can get rid of mapState if I compare the states in a hash
+    key: "isStable",
+    value: function isStable(array) {
+      if (array.length > 3 && array[array.length - 1] === array[array.length - 3]) {
+        return true;
+      } else {
+        return false;
+      }
+    } //I can get rid of mapState if I compare the states in an array
     // mapState() {
     //     for (let i = 0; i < this.entities.length; i++) {
     //         this.state[i] = this.entities[i].on;
@@ -197,7 +200,7 @@ var World = /*#__PURE__*/function () {
       var _this2 = this;
 
       // this.mapState();
-      window.initialState = this.state;
+      // window.initialState = this.state;
       this.checkNeighborhood(); // this.mapState();
       // window.postSequentialState = this.sequentialState;
       // console.log(this.isSteady(window.initialState, window.postSequentialState))
@@ -209,6 +212,8 @@ var World = /*#__PURE__*/function () {
       }
 
       ;
+      window.stateArray.push(this.entities);
+      console.log(isStable(window.stateArray));
       this.incrementNumMoves();
       setTimeout(function () {
         window.requestAnimationFrame(function () {
