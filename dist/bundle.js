@@ -183,15 +183,14 @@ var World = /*#__PURE__*/function () {
     key: "isSteady",
     value: function isSteady(x, y) {
       return x === y ? true : false;
-    }
-  }, {
-    key: "mapState",
-    value: function mapState() {
-      for (var i = 0; i < this.entities.length; i++) {
-        this.state[i] = this.entities[i].on;
-        this.sequentialState[i] = this.entities[i].nextOn;
-      }
-    }
+    } //I can get rid of mapState if I compare the states in a hash
+    // mapState() {
+    //     for (let i = 0; i < this.entities.length; i++) {
+    //         this.state[i] = this.entities[i].on;
+    //         this.sequentialState[i] = this.entities[i].nextOn;
+    //     }
+    // }
+
   }, {
     key: "loop",
     value: function loop() {

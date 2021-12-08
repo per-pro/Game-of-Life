@@ -71,12 +71,14 @@ export default class World {
         return x === y ? true : false
     }
 
-    mapState() {
-        for (let i = 0; i < this.entities.length; i++) {
-            this.state[i] = this.entities[i].on;
-            this.sequentialState[i] = this.entities[i].nextOn;
-        }
-    }
+
+    //I can get rid of mapState if I compare the states in a hash
+    // mapState() {
+    //     for (let i = 0; i < this.entities.length; i++) {
+    //         this.state[i] = this.entities[i].on;
+    //         this.sequentialState[i] = this.entities[i].nextOn;
+    //     }
+    // }
 
     loop() {
         this.mapState();
@@ -93,6 +95,6 @@ export default class World {
         setTimeout( () => {
             window.requestAnimationFrame(() => this.loop())
         }, 100);
-    }
 
+    }
 }
