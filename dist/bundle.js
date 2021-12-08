@@ -198,6 +198,7 @@ var World = /*#__PURE__*/function () {
       var _this2 = this;
 
       this.mapState();
+      window.initialState = this.state;
       this.checkNeighborhood();
       this.mapState();
       window.postSequentialState = this.sequentialState;

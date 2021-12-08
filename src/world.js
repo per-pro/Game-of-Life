@@ -80,6 +80,7 @@ export default class World {
 
     loop() {
         this.mapState();
+        window.initialState = this.state;
         this.checkNeighborhood();
         this.mapState();
         window.postSequentialState = this.sequentialState;
