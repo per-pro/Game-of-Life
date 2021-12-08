@@ -69,34 +69,25 @@ export default class World {
 
     isStable(array) {
         if (array.length > 2) {
-            return array[array.length - 1] === array[array.length - 3]
+            //this is the bit I'm struggling with
+            if (array[array.length - 1] === array[array.length - 3]) {
+                return true
+            } else {
+                return false}
         } else {
             return false
         }
     }
 
-
-    //I can get rid of mapState if I compare the states in an array
-    // mapState() {
-    //     for (let i = 0; i < this.entities.length; i++) {
-    //         this.state[i] = this.entities[i].on;
-    //         this.sequentialState[i] = this.entities[i].nextOn;
-    //     }
-    // }
-
     loop() {
-        // this.mapState();
-        // window.initialState = this.state;
         this.checkNeighborhood();
-        // this.mapState();
-        // window.postSequentialState = this.sequentialState;
-        // console.log(this.isSteady(window.initialState, window.postSequentialState))
         this.context.clearRect(0, 0, this.canvas.width, this.canvas.height);
         for (let i = 0; i < this.entities.length; i++) {
             this.entities[i].draw();
         };
+        this.entities
         window.stateArray.push(this.entities);
-        console.log(this.isStable(window.stateArray))
+        console.log(window.stateArray[])
         this.incrementNumMoves();
         setTimeout( () => {
             window.requestAnimationFrame(() => this.loop())
