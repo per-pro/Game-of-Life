@@ -87,8 +87,9 @@ export default class World {
         for (let i = 0; i < this.entities.length; i++) {
             this.entities[i].draw();
         };
-        window.stateArray.push(this.entities);
-        console.log(window.stateArray)
+        let state = [];
+        state = this.entities;
+        window.stateArray.push(state);
         console.log(this.isStable(window.stateArray))
         this.incrementNumMoves();
         setTimeout( () => {

@@ -205,8 +205,9 @@ var World = /*#__PURE__*/function () {
       }
 
       ;
-      window.stateArray.push(this.entities);
-      console.log(window.stateArray);
+      var state = [];
+      state = this.entities;
+      window.stateArray.push(state);
       console.log(this.isStable(window.stateArray));
       this.incrementNumMoves();
       setTimeout(function () {
