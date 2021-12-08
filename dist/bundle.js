@@ -196,12 +196,12 @@ var World = /*#__PURE__*/function () {
     value: function loop() {
       var _this2 = this;
 
-      this.mapState();
+      // this.mapState();
       window.initialState = this.state;
-      this.checkNeighborhood();
-      this.mapState();
-      window.postSequentialState = this.sequentialState;
-      console.log(this.isSteady(window.initialState, window.postSequentialState));
+      this.checkNeighborhood(); // this.mapState();
+      // window.postSequentialState = this.sequentialState;
+      // console.log(this.isSteady(window.initialState, window.postSequentialState))
+
       this.context.clearRect(0, 0, this.canvas.width, this.canvas.height);
 
       for (var i = 0; i < this.entities.length; i++) {
