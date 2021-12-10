@@ -182,8 +182,9 @@ var World = /*#__PURE__*/function () {
     key: "isStable",
     value: function isStable(array) {
       if (array.length > 3) {
-        //this is the bit I'm struggling with
-        if (JSON.stringify(array[array.length - 1]) === JSON.stringify(array[array.length - 3])) {
+        //this is the bit I'm struggling with - why is it giving true both with and without stringify?
+        // if (JSON.stringify(array[array.length - 1]) === JSON.stringify(array[array.length - 3])) {
+        if (array[array.length - 1] === array[array.length - 3]) {
           return true;
         } else {
           return false;
@@ -201,7 +202,6 @@ var World = /*#__PURE__*/function () {
       this.context.clearRect(0, 0, this.canvas.width, this.canvas.height);
 
       for (var i = 0; i < this.entities.length; i++) {
-        console.log(this.entities);
         this.entities[i].draw();
       }
 
