@@ -68,9 +68,10 @@ export default class World {
     }
 
     isStable(array) {
-        if (array.length > 2) {
+        if (array.length > 3) {
             //this is the bit I'm struggling with
             if (array[array.length - 1] === array[array.length - 3]) {
+                debugger
                 return true
             } else {
                 return false}
@@ -79,12 +80,11 @@ export default class World {
         }
     }
 
-
-
     loop() {
         this.checkNeighborhood();
         this.context.clearRect(0, 0, this.canvas.width, this.canvas.height);
         for (let i = 0; i < this.entities.length; i++) {
+            console.log(this.entities)
             this.entities[i].draw();
         };
         let state = [];
