@@ -70,8 +70,7 @@ export default class World {
     isStable(array) {
         if (array.length > 3) {
             //this is the bit I'm struggling with
-            if (array[array.length - 1] === array[array.length - 3]) {
-                debugger
+            if (JSON.stringify(array[array.length - 1]) === JSON.stringify(array[array.length - 3])) {
                 return true
             } else {
                 return false}
