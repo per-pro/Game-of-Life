@@ -73,7 +73,6 @@ export default class World {
                 a.every((v, i) => v === b[i]);
         if (array.length > 3) {
             //this is the bit I'm struggling with - why is it giving true both with and without stringify and with iterating through all the elements?
-            // if (JSON.stringify(array[array.length - 1]) === JSON.stringify(array[array.length - 3])) {            
             // if (array[array.length - 1] === array[array.length - 3]) {
             if (equals(array[array.length - 1], array[array.length - 3])) {
                 return true
