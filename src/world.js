@@ -9,8 +9,6 @@ export default class World {
         this.entities = [];
         this.numMoves = 0;
         this.makeGrid();
-        // this.state = [];
-        // this.sequentialState = [];
         window.requestAnimationFrame(() => this.loop());
     }
 
@@ -72,6 +70,8 @@ export default class World {
                 a.length === b.length &&
                 a.every((v, i) => v === b[i]);
         if (array.length > 3) {
+            console.log(array[array.length - 1])
+            console.log(array[array.length - 3])
             //this is the bit I'm struggling with - why is it giving true both with and without stringify and with iterating through all the elements?
             // if (array[array.length - 1] === array[array.length - 3]) {
             if (equals(array[array.length - 1], array[array.length - 3])) {
@@ -97,6 +97,6 @@ export default class World {
         setTimeout( () => {
             window.requestAnimationFrame(() => this.loop())
         }, 100);
-
+//        let new = […old] 
     }
 }

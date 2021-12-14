@@ -188,9 +188,10 @@ var World = /*#__PURE__*/function () {
       };
 
       if (array.length > 3) {
-        //this is the bit I'm struggling with - why is it giving true both with and without stringify and with iterating through all the elements?
-        // if (JSON.stringify(array[array.length - 1]) === JSON.stringify(array[array.length - 3])) {            
+        console.log(array[array.length - 1]);
+        console.log(array[array.length - 3]); //this is the bit I'm struggling with - why is it giving true both with and without stringify and with iterating through all the elements?
         // if (array[array.length - 1] === array[array.length - 3]) {
+
         if (equals(array[array.length - 1], array[array.length - 3])) {
           return true;
         } else {
@@ -222,7 +223,7 @@ var World = /*#__PURE__*/function () {
         window.requestAnimationFrame(function () {
           return _this2.loop();
         });
-      }, 100);
+      }, 100); //        let new = […old] 
     }
   }]);
 
