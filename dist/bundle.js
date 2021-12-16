@@ -101,6 +101,18 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _cell__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./cell */ "./src/cell.js");
 /* harmony import */ var _global__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./global */ "./src/global.js");
 /* harmony import */ var _global__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(_global__WEBPACK_IMPORTED_MODULE_1__);
+function _toConsumableArray(arr) { return _arrayWithoutHoles(arr) || _iterableToArray(arr) || _unsupportedIterableToArray(arr) || _nonIterableSpread(); }
+
+function _nonIterableSpread() { throw new TypeError("Invalid attempt to spread non-iterable instance.\nIn order to be iterable, non-array objects must have a [Symbol.iterator]() method."); }
+
+function _unsupportedIterableToArray(o, minLen) { if (!o) return; if (typeof o === "string") return _arrayLikeToArray(o, minLen); var n = Object.prototype.toString.call(o).slice(8, -1); if (n === "Object" && o.constructor) n = o.constructor.name; if (n === "Map" || n === "Set") return Array.from(o); if (n === "Arguments" || /^(?:Ui|I)nt(?:8|16|32)(?:Clamped)?Array$/.test(n)) return _arrayLikeToArray(o, minLen); }
+
+function _iterableToArray(iter) { if (typeof Symbol !== "undefined" && Symbol.iterator in Object(iter)) return Array.from(iter); }
+
+function _arrayWithoutHoles(arr) { if (Array.isArray(arr)) return _arrayLikeToArray(arr); }
+
+function _arrayLikeToArray(arr, len) { if (len == null || len > arr.length) len = arr.length; for (var i = 0, arr2 = new Array(len); i < len; i++) { arr2[i] = arr[i]; } return arr2; }
+
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
 
 function _defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } }
@@ -120,9 +132,7 @@ var World = /*#__PURE__*/function () {
     this.context = this.canvas.getContext('2d');
     this.entities = [];
     this.numMoves = 0;
-    this.makeGrid(); // this.state = [];
-    // this.sequentialState = [];
-
+    this.makeGrid();
     window.requestAnimationFrame(function () {
       return _this.loop();
     });
@@ -188,10 +198,8 @@ var World = /*#__PURE__*/function () {
       };
 
       if (array.length > 3) {
-        console.log(array[array.length - 1]);
-        console.log(array[array.length - 3]); //this is the bit I'm struggling with - why is it giving true both with and without stringify and with iterating through all the elements?
-        // if (array[array.length - 1] === array[array.length - 3]) {
-
+        //the issue is that its retroactively changing the elements - when compare first element of first round with later rounds it changes
+        //this is the bit I'm struggling with - why is it giving true both with and without stringify and with iterating through all the elements?
         if (equals(array[array.length - 1], array[array.length - 3])) {
           return true;
         } else {
@@ -214,8 +222,9 @@ var World = /*#__PURE__*/function () {
       }
 
       ;
-      var state = [];
-      state = this.entities;
+
+      var state = _toConsumableArray(this.entities);
+
       window.stateArray.push(state);
       console.log(this.isStable(window.stateArray));
       this.incrementNumMoves();
@@ -223,7 +232,7 @@ var World = /*#__PURE__*/function () {
         window.requestAnimationFrame(function () {
           return _this2.loop();
         });
-      }, 100); //        let new = […old] 
+      }, 100);
     }
   }]);
 

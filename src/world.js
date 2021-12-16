@@ -55,7 +55,7 @@ export default class World {
                 }
             }
         }
-
+        
         for (let i = 0; i < this.entities.length; i++) {
             this.entities[i].on = this.entities[i].nextOn;
         }
@@ -70,10 +70,8 @@ export default class World {
                 a.length === b.length &&
                 a.every((v, i) => v === b[i]);
         if (array.length > 3) {
-            console.log(array[array.length - 1])
-            console.log(array[array.length - 3])
+            //the issue is that its retroactively changing the elements - when compare first element of first round with later rounds it changes
             //this is the bit I'm struggling with - why is it giving true both with and without stringify and with iterating through all the elements?
-            // if (array[array.length - 1] === array[array.length - 3]) {
             if (equals(array[array.length - 1], array[array.length - 3])) {
                 return true
             } else {
@@ -89,14 +87,12 @@ export default class World {
         for (let i = 0; i < this.entities.length; i++) {
             this.entities[i].draw();
         };
-        let state = [];
-        state = this.entities;
+        let state = [...this.entities];
         window.stateArray.push(state);
         console.log(this.isStable(window.stateArray))
         this.incrementNumMoves();
         setTimeout( () => {
             window.requestAnimationFrame(() => this.loop())
         }, 100);
-//        let new = […old] 
     }
 }
