@@ -224,11 +224,10 @@ var World = /*#__PURE__*/function () {
 
       ;
       var state = new Object();
-
-      _toConsumableArray(this.entities);
-
-      this.stateArray.push(state);
-      console.log(this.isStable(this.stateArray)); // window.stateArray.push(state);
+      state[this.numMoves] = _toConsumableArray(this.entities);
+      console.log(this.isStable(state)); // this.stateArray.push(state);
+      // console.log(this.isStable(this.stateArray));
+      // window.stateArray.push(state);
       // console.log(this.isStable(window.stateArray))
 
       this.incrementNumMoves();

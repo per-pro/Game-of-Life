@@ -89,9 +89,10 @@ export default class World {
             this.entities[i].draw();
         };
         let state = new Object();
-        [...this.entities];
-        this.stateArray.push(state);
-        console.log(this.isStable(this.stateArray));
+        state[this.numMoves] = [...this.entities];
+        console.log(this.isStable(state))
+        // this.stateArray.push(state);
+        // console.log(this.isStable(this.stateArray));
         // window.stateArray.push(state);
         // console.log(this.isStable(window.stateArray))
         this.incrementNumMoves();
