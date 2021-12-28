@@ -88,7 +88,8 @@ export default class World {
         for (let i = 0; i < this.entities.length; i++) {
             this.entities[i].draw();
         };
-        let state = [...this.entities];
+        let state = new Object();
+        [...this.entities];
         this.stateArray.push(state);
         console.log(this.isStable(this.stateArray));
         // window.stateArray.push(state);

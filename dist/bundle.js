@@ -223,8 +223,9 @@ var World = /*#__PURE__*/function () {
       }
 
       ;
+      var state = new Object();
 
-      var state = _toConsumableArray(this.entities);
+      _toConsumableArray(this.entities);
 
       this.stateArray.push(state);
       console.log(this.isStable(this.stateArray)); // window.stateArray.push(state);
