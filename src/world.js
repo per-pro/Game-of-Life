@@ -90,7 +90,7 @@ export default class World {
         };
         let state = [...this.entities];
         this.stateArray.push(state);
-        console.log(this.isStable(this,stateArray));
+        console.log(this.isStable(this.stateArray));
         // window.stateArray.push(state);
         // console.log(this.isStable(window.stateArray))
         this.incrementNumMoves();

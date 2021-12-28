@@ -81,8 +81,8 @@ window.selectedColor = "Cold";
 window.numColumns = 100;
 window.numRows = 100;
 window.width = 10;
-window.height = 10;
-window.stateArray = [];
+window.height = 10; // window.stateArray = [];
+
 window.numMoves = 0;
 
 /***/ }),
@@ -131,6 +131,7 @@ var World = /*#__PURE__*/function () {
     this.canvas = document.getElementById(canvasId);
     this.context = this.canvas.getContext('2d');
     this.entities = [];
+    this.stateArray = [];
     this.numMoves = 0;
     this.makeGrid();
     window.requestAnimationFrame(function () {
@@ -199,7 +200,7 @@ var World = /*#__PURE__*/function () {
 
       if (array.length > 3) {
         //the issue is that its retroactively changing the elements - when compare first element of first round with later rounds it changes
-        //this is the bit I'm struggling with - why is it giving true both with and without stringify and with iterating through all the elements?
+        //diagnosed the problem, it's a memory location issue
         if (equals(array[array.length - 1], array[array.length - 3])) {
           return true;
         } else {
@@ -225,8 +226,10 @@ var World = /*#__PURE__*/function () {
 
       var state = _toConsumableArray(this.entities);
 
-      window.stateArray.push(state);
-      console.log(this.isStable(window.stateArray));
+      this.stateArray.push(state);
+      console.log(this.isStable(this.stateArray)); // window.stateArray.push(state);
+      // console.log(this.isStable(window.stateArray))
+
       this.incrementNumMoves();
       setTimeout(function () {
         window.requestAnimationFrame(function () {
