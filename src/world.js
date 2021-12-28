@@ -7,6 +7,7 @@ export default class World {
         this.canvas = document.getElementById(canvasId);
         this.context = this.canvas.getContext('2d');
         this.entities = [];
+        this.stateArray = [];
         this.numMoves = 0;
         this.makeGrid();
         window.requestAnimationFrame(() => this.loop());
@@ -88,8 +89,10 @@ export default class World {
             this.entities[i].draw();
         };
         let state = [...this.entities];
-        window.stateArray.push(state);
-        console.log(this.isStable(window.stateArray))
+        this.stateArray.push(state);
+        console.log(this.isStable(this,stateArray));
+        // window.stateArray.push(state);
+        // console.log(this.isStable(window.stateArray))
         this.incrementNumMoves();
         setTimeout( () => {
             window.requestAnimationFrame(() => this.loop())
