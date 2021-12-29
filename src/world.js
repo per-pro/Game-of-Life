@@ -71,7 +71,6 @@ export default class World {
                 a.length === b.length &&
                 a.every((v, i) => v === b[i]);
         if (array.length > 3) {
-            //the issue is that its retroactively changing the elements - when compare first element of first round with later rounds it changes
             //diagnosed the problem, it's a memory location issue
             if (equals(array[array.length - 1], array[array.length - 3])) {
                 return true
