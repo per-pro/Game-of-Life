@@ -222,7 +222,8 @@ var World = /*#__PURE__*/function () {
         this.entities[i].draw();
       }
 
-      ;
+      ; //with object im not getting a false positive but its also not showing when it is actually true
+
       var state = new Object();
       state[this.numMoves] = _toConsumableArray(this.entities);
       console.log(this.isStable(state)); // this.stateArray.push(state);

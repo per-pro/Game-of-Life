@@ -88,13 +88,10 @@ export default class World {
         for (let i = 0; i < this.entities.length; i++) {
             this.entities[i].draw();
         };
+        //with object im not getting a false positive but its also not showing when it is actually true
         let state = new Object();
         state[this.numMoves] = [...this.entities];
         console.log(this.isStable(state))
-        // this.stateArray.push(state);
-        // console.log(this.isStable(this.stateArray));
-        // window.stateArray.push(state);
-        // console.log(this.isStable(window.stateArray))
         this.incrementNumMoves();
         setTimeout( () => {
             window.requestAnimationFrame(() => this.loop())
