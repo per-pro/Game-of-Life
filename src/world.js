@@ -90,10 +90,10 @@ export default class World {
         //with object im not getting a false positive but its also not showing when it is actually true
         let state = new Object();
         state[this.numMoves] = [...this.entities];
-        console.log(this.isStable(state))
+        console.log(this.isStable(state));
         this.incrementNumMoves();
         setTimeout( () => {
-            window.requestAnimationFrame(() => this.loop())
+            window.requestAnimationFrame(() => this.loop());
         }, 100);
     }
 }
