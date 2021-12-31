@@ -66,13 +66,13 @@ export default class World {
         window.numMoves += 1;
     }
 
-    isStable(array) {
+    isStable(object) {
         const equals = (a, b) =>
                 a.length === b.length &&
                 a.every((v, i) => v === b[i]);
-        if (array.length > 3) {
+        if (object.length > 3) {
             //diagnosed the problem, it's a memory location issue
-            if (equals(array[array.length - 1], array[array.length - 3])) {
+            if (equals(object[object.length - 1], object[object.length - 3])) {
                 return true
             } else {
                 return false}
