@@ -24,13 +24,6 @@ export default class Cell {
                 this.context.fillStyle = this.on ? 'red' : 'black';
                 break
         }
-        //'forest' - 0B6623
-        //'mint' - '#98FF98'
-        //'peach' - '#FFDAB9'
-        //'tide' - '#B7B4AD'
-        //'Oslo Gray' - '#8E9096'
-        //'coral' - '#FF7F50'
-        //'Smoke' - '#848884'
         this.context.fillRect(this.gridX * window.width,
                               this.gridY * window.height,
                               window.width, window.height);
