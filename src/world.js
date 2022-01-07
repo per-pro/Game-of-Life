@@ -10,6 +10,7 @@ export default class World {
         this.stateArray = [];
         this.numMoves = 0;
         this.makeGrid();
+        this.state = new Object();
         window.requestAnimationFrame(() => this.loop());
     }
 
@@ -88,9 +89,8 @@ export default class World {
             this.entities[i].draw();
         };
         //with object im not getting a false positive but its also not showing when it is actually true
-        let state = new Object();
-        state[this.numMoves] = [...this.entities];
-        console.log(this.isStable(state));
+        this.state[this.numMoves] = [...this.entities];
+        console.log(this.isStable(this.state));
         this.incrementNumMoves();
         setTimeout( () => {
             window.requestAnimationFrame(() => this.loop());

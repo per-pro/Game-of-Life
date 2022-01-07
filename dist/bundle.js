@@ -126,6 +126,7 @@ var World = /*#__PURE__*/function () {
     this.stateArray = [];
     this.numMoves = 0;
     this.makeGrid();
+    this.state = new Object();
     window.requestAnimationFrame(function () {
       return _this.loop();
     });
@@ -215,9 +216,8 @@ var World = /*#__PURE__*/function () {
 
       ; //with object im not getting a false positive but its also not showing when it is actually true
 
-      var state = new Object();
-      state[this.numMoves] = _toConsumableArray(this.entities);
-      console.log(this.isStable(state));
+      this.state[this.numMoves] = _toConsumableArray(this.entities);
+      console.log(this.isStable(this.state));
       this.incrementNumMoves();
       setTimeout(function () {
         window.requestAnimationFrame(function () {
