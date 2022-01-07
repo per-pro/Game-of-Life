@@ -51,14 +51,7 @@ var Cell = /*#__PURE__*/function () {
         default:
           this.context.fillStyle = this.on ? 'red' : 'black';
           break;
-      } //'forest' - 0B6623
-      //'mint' - '#98FF98'
-      //'peach' - '#FFDAB9'
-      //'tide' - '#B7B4AD'
-      //'Oslo Gray' - '#8E9096'
-      //'coral' - '#FF7F50'
-      //'Smoke' - '#848884'
-
+      }
 
       this.context.fillRect(this.gridX * window.width, this.gridY * window.height, window.width, window.height);
     }
@@ -81,8 +74,7 @@ window.selectedColor = "Cold";
 window.numColumns = 100;
 window.numRows = 100;
 window.width = 10;
-window.height = 10; // window.stateArray = [];
-
+window.height = 10;
 window.numMoves = 0;
 
 /***/ }),
@@ -191,17 +183,16 @@ var World = /*#__PURE__*/function () {
     }
   }, {
     key: "isStable",
-    value: function isStable(array) {
+    value: function isStable(object) {
       var equals = function equals(a, b) {
         return a.length === b.length && a.every(function (v, i) {
           return v === b[i];
         });
       };
 
-      if (array.length > 3) {
-        //the issue is that its retroactively changing the elements - when compare first element of first round with later rounds it changes
+      if (object.length > 3) {
         //diagnosed the problem, it's a memory location issue
-        if (equals(array[array.length - 1], array[array.length - 3])) {
+        if (equals(object[object.length - 1], object[object.length - 3])) {
           return true;
         } else {
           return false;
@@ -226,11 +217,7 @@ var World = /*#__PURE__*/function () {
 
       var state = new Object();
       state[this.numMoves] = _toConsumableArray(this.entities);
-      console.log(this.isStable(state)); // this.stateArray.push(state);
-      // console.log(this.isStable(this.stateArray));
-      // window.stateArray.push(state);
-      // console.log(this.isStable(window.stateArray))
-
+      console.log(this.isStable(state));
       this.incrementNumMoves();
       setTimeout(function () {
         window.requestAnimationFrame(function () {
@@ -330,8 +317,7 @@ __webpack_require__.r(__webpack_exports__);
 
 window.onload = function () {
   var world = new _world__WEBPACK_IMPORTED_MODULE_0__.default('canvas', 'width', 'height', 'rows', 'cols', 'color');
-  var colorInput = document.getElementById('color'); // console.log('the color is ', colorInput.value)
-
+  var colorInput = document.getElementById('color');
   colorInput.addEventListener('change', function (e) {
     switch (e.currentTarget.value) {
       case "Cold":
@@ -353,21 +339,17 @@ window.onload = function () {
 
     ;
   });
-  var columnInput = document.getElementById('column'); // console.log('the color is ', colorInput.value)
-
-  columnInput.addEventListener('click', function (e) {// switch statement
-  });
+  var columnInput = document.getElementById('column');
+  columnInput.addEventListener('click', function (e) {});
   var rowInput = document.getElementById('row');
-  rowInput.addEventListener('click', function (e) {// switch statement
-  });
+  rowInput.addEventListener('click', function (e) {});
   var widthInput = document.getElementById('width');
-  widthInput.addEventListener('click', function (e) {// switch statement
-  });
+  widthInput.addEventListener('click', function (e) {});
   var heightInput = document.getElementById('height');
-  heightInput.addEventListener('click', function (e) {// switch statement
-  });
+  heightInput.addEventListener('click', function (e) {});
   world.makeGrid();
 }; //steady state
+//column + row
 //play button
 //styling
 //custom color
