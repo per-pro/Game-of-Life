@@ -73,7 +73,7 @@ export default class World {
                 a.every((v, i) => v === b[i]);
         if (object.length > 3) {
             //diagnosed the problem, it's a memory location issue
-            if (equals(object[object.length - 1], object[object.length - 3])) {
+            if (equals(object[Object.keys(object).length - 1], object[Object.keys(object).length - 3])) {
                 return true
             } else {
                 return false}
