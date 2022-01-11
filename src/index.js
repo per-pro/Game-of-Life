@@ -9,7 +9,6 @@ window.onload = () => {
     'cols',
     'color');
     let colorInput = document.getElementById('color');
-    // console.log('the color is ', colorInput.value)
     colorInput.addEventListener('change', (e) => {
         switch(e.currentTarget.value) {
             case "Cold":
@@ -27,25 +26,21 @@ window.onload = () => {
         };
     });
     let columnInput = document.getElementById('column');
-    // console.log('the color is ', colorInput.value)
     columnInput.addEventListener('click', (e) => {
-        // switch statement
     });
     let rowInput = document.getElementById('row');
     rowInput.addEventListener('click', (e) => {
-        // switch statement
     });
     let widthInput = document.getElementById('width');
     widthInput.addEventListener('click', (e) => {
-        // switch statement
     });
     let heightInput = document.getElementById('height');
     heightInput.addEventListener('click', (e) => {
-        // switch statement
     });
     world.makeGrid();
 }
 //steady state
+//column + row
 //play button
 //styling
 //custom color

@@ -51,14 +51,7 @@ var Cell = /*#__PURE__*/function () {
         default:
           this.context.fillStyle = this.on ? 'red' : 'black';
           break;
-      } //'forest' - 0B6623
-      //'mint' - '#98FF98'
-      //'peach' - '#FFDAB9'
-      //'tide' - '#B7B4AD'
-      //'Oslo Gray' - '#8E9096'
-      //'coral' - '#FF7F50'
-      //'Smoke' - '#848884'
-
+      }
 
       this.context.fillRect(this.gridX * window.width, this.gridY * window.height, window.width, window.height);
     }
@@ -82,8 +75,6 @@ window.numColumns = 100;
 window.numRows = 100;
 window.width = 10;
 window.height = 10;
-window.initialState = [];
-window.postSequentialState = [];
 window.numMoves = 0;
 
 /***/ }),
@@ -102,6 +93,18 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _cell__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./cell */ "./src/cell.js");
 /* harmony import */ var _global__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./global */ "./src/global.js");
 /* harmony import */ var _global__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(_global__WEBPACK_IMPORTED_MODULE_1__);
+function _toConsumableArray(arr) { return _arrayWithoutHoles(arr) || _iterableToArray(arr) || _unsupportedIterableToArray(arr) || _nonIterableSpread(); }
+
+function _nonIterableSpread() { throw new TypeError("Invalid attempt to spread non-iterable instance.\nIn order to be iterable, non-array objects must have a [Symbol.iterator]() method."); }
+
+function _unsupportedIterableToArray(o, minLen) { if (!o) return; if (typeof o === "string") return _arrayLikeToArray(o, minLen); var n = Object.prototype.toString.call(o).slice(8, -1); if (n === "Object" && o.constructor) n = o.constructor.name; if (n === "Map" || n === "Set") return Array.from(o); if (n === "Arguments" || /^(?:Ui|I)nt(?:8|16|32)(?:Clamped)?Array$/.test(n)) return _arrayLikeToArray(o, minLen); }
+
+function _iterableToArray(iter) { if (typeof Symbol !== "undefined" && Symbol.iterator in Object(iter)) return Array.from(iter); }
+
+function _arrayWithoutHoles(arr) { if (Array.isArray(arr)) return _arrayLikeToArray(arr); }
+
+function _arrayLikeToArray(arr, len) { if (len == null || len > arr.length) len = arr.length; for (var i = 0, arr2 = new Array(len); i < len; i++) { arr2[i] = arr[i]; } return arr2; }
+
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
 
 function _defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } }
@@ -120,9 +123,10 @@ var World = /*#__PURE__*/function () {
     this.canvas = document.getElementById(canvasId);
     this.context = this.canvas.getContext('2d');
     this.entities = [];
+    this.stateArray = [];
     this.numMoves = 0;
     this.makeGrid();
-    this.sequentialState = [];
+    this.state = new Object();
     window.requestAnimationFrame(function () {
       return _this.loop();
     });
@@ -179,16 +183,23 @@ var World = /*#__PURE__*/function () {
       window.numMoves += 1;
     }
   }, {
-    key: "isSteady",
-    value: function isSteady(x, y) {
-      return x === y ? true : false;
-    }
-  }, {
-    key: "mapState",
-    value: function mapState() {
-      for (var i = 0; i < this.entities.length; i++) {
-        state[i] = this.entities[i].on;
-        this.sequentialState[i] = this.entities[i].nextOn;
+    key: "isStable",
+    value: function isStable(object) {
+      var equals = function equals(a, b) {
+        return a.length === b.length && a.every(function (v, i) {
+          return v === b[i];
+        });
+      };
+
+      if (object.length > 3) {
+        //diagnosed the problem, it's a memory location issue
+        if (equals(object[Object.keys(object).length - 1], object[Object.keys(object).length - 3])) {
+          return true;
+        } else {
+          return false;
+        }
+      } else {
+        return false;
       }
     }
   }, {
@@ -196,19 +207,17 @@ var World = /*#__PURE__*/function () {
     value: function loop() {
       var _this2 = this;
 
-      this.mapState();
-      window.initialState = state;
       this.checkNeighborhood();
-      this.mapState();
-      window.postSequentialState = this.sequentialState;
-      console.log(this.isSteady(window.initialState, window.postSequentialState));
       this.context.clearRect(0, 0, this.canvas.width, this.canvas.height);
 
       for (var i = 0; i < this.entities.length; i++) {
         this.entities[i].draw();
       }
 
-      ;
+      ; //with object im not getting a false positive but its also not showing when it is actually true
+
+      this.state[this.numMoves] = _toConsumableArray(this.entities);
+      console.log(this.isStable(this.state));
       this.incrementNumMoves();
       setTimeout(function () {
         window.requestAnimationFrame(function () {
@@ -308,8 +317,7 @@ __webpack_require__.r(__webpack_exports__);
 
 window.onload = function () {
   var world = new _world__WEBPACK_IMPORTED_MODULE_0__.default('canvas', 'width', 'height', 'rows', 'cols', 'color');
-  var colorInput = document.getElementById('color'); // console.log('the color is ', colorInput.value)
-
+  var colorInput = document.getElementById('color');
   colorInput.addEventListener('change', function (e) {
     switch (e.currentTarget.value) {
       case "Cold":
@@ -331,21 +339,17 @@ window.onload = function () {
 
     ;
   });
-  var columnInput = document.getElementById('column'); // console.log('the color is ', colorInput.value)
-
-  columnInput.addEventListener('click', function (e) {// switch statement
-  });
+  var columnInput = document.getElementById('column');
+  columnInput.addEventListener('click', function (e) {});
   var rowInput = document.getElementById('row');
-  rowInput.addEventListener('click', function (e) {// switch statement
-  });
+  rowInput.addEventListener('click', function (e) {});
   var widthInput = document.getElementById('width');
-  widthInput.addEventListener('click', function (e) {// switch statement
-  });
+  widthInput.addEventListener('click', function (e) {});
   var heightInput = document.getElementById('height');
-  heightInput.addEventListener('click', function (e) {// switch statement
-  });
+  heightInput.addEventListener('click', function (e) {});
   world.makeGrid();
 }; //steady state
+//column + row
 //play button
 //styling
 //custom color

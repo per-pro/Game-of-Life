@@ -7,9 +7,10 @@ export default class World {
         this.canvas = document.getElementById(canvasId);
         this.context = this.canvas.getContext('2d');
         this.entities = [];
+        this.stateArray = [];
         this.numMoves = 0;
         this.makeGrid();
-        this.sequentialState = [];
+        this.state = new Object();
         window.requestAnimationFrame(() => this.loop());
     }
 
@@ -56,7 +57,7 @@ export default class World {
                 }
             }
         }
-
+        
         for (let i = 0; i < this.entities.length; i++) {
             this.entities[i].on = this.entities[i].nextOn;
         }
@@ -66,32 +67,33 @@ export default class World {
         window.numMoves += 1;
     }
 
-    isSteady(x, y) {
-        return x === y ? true : false
-    }
-
-    mapState() {
-        for (let i = 0; i < this.entities.length; i++) {
-            state[i] = this.entities[i].on;
-            this.sequentialState[i] = this.entities[i].nextOn;
+    isStable(object) {
+        const equals = (a, b) =>
+                a.length === b.length &&
+                a.every((v, i) => v === b[i]);
+        if (object.length > 3) {
+            //diagnosed the problem, it's a memory location issue
+            if (equals(object[Object.keys(object).length - 1], object[Object.keys(object).length - 3])) {
+                return true
+            } else {
+                return false}
+        } else {
+            return false
         }
     }
 
     loop() {
-        this.mapState();
-        window.initialState = state;
         this.checkNeighborhood();
-        this.mapState();
-        window.postSequentialState = this.sequentialState;
-        console.log(this.isSteady(window.initialState, window.postSequentialState))
         this.context.clearRect(0, 0, this.canvas.width, this.canvas.height);
         for (let i = 0; i < this.entities.length; i++) {
             this.entities[i].draw();
         };
+        //with object i'm not getting a false positive but its also not showing when it is actually true
+        this.state[this.numMoves] = [...this.entities];
+        console.log(this.isStable(this.state));
         this.incrementNumMoves();
         setTimeout( () => {
-            window.requestAnimationFrame(() => this.loop())
+            window.requestAnimationFrame(() => this.loop());
         }, 100);
     }
-
 }
