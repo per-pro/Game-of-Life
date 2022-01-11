@@ -88,7 +88,7 @@ export default class World {
         for (let i = 0; i < this.entities.length; i++) {
             this.entities[i].draw();
         };
-        //with object im not getting a false positive but its also not showing when it is actually true
+        //with object i'm not getting a false positive but its also not showing when it is actually true
         this.state[this.numMoves] = [...this.entities];
         console.log(this.isStable(this.state));
         this.incrementNumMoves();
